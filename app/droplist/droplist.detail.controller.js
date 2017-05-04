@@ -76,6 +76,22 @@
         }
 
         function save() {
+          /* THIS NEEDS TO BE REPLACED WHEN AUTH WORKS */
+          vm.droplist.stockerId = 1;
+          vm.droplist.driverId = 2;
+          vm.droplist.buildingId = 1;
+          /* YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS */
+
+          vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
+
+          if($stateParams.id) {
+            droplistsFactory
+              .update($stateParams.id, vm.droplist)
+              .then(function() {
+                // tell user good things happened
+              });
+          } else {
+            vm.droplist.stockerId = 1;
             droplistsFactory
                 .create(vm.droplist)
                 .then(function() {
@@ -96,6 +112,8 @@
                     //     });
                     // }
                 });
+          }
+
         }
 
         vm.filterSections = function filterSections() {
