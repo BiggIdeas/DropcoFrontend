@@ -50,6 +50,7 @@
         vm.filteredDroplists = vm.droplists;
         vm.isSectionsDisabled = true;
       } else {
+        vm.filteredDroplists =[];
         vm.isSectionsDisabled = false;
         vm.departmentSections = [];
         for (var i = 0; i < vm.sections.length; i++) {
@@ -59,6 +60,9 @@
         vm.departmentSections.push({
           sectionName: 'All sections'
         });
+        var lastItem = vm.departmentSections[vm.departmentSections.length -1];
+        vm.selectedSection = lastItem;
+        vm.filterDroplists();
       }
     }
 
