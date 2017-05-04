@@ -1,0 +1,29 @@
+#container {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+header img{
+  height: 125px;
+}
+
+#jumbotron{
+  background-color: #eee;
+  padding: 10px 0;
+}
+
+#navbar {
+  margin-bottom: 25px;
+  background-color: #337ab7;
+  font-size: 24px;
+  padding: 5px 0;
+}
+
+#navbar a{
+  color: white;
+  margin: 0 10px;
+}

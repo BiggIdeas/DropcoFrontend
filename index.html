@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+  <!-- endbower -->
+
+  <!-- inject:css -->
+  <!-- endinject -->
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <header>
+      <div id="jumbotron" class="row">
+        <div class="col-xs-3">
+          <img src="Images/logo.png" alt="" class="src">
+        </div>
+        <div class="col-xs-6">
+          <input type="text"></input>
+        </div>
+        <div class="col-xs-3">
+          <a ui-sref="login">Sign in</a>
+        </div>
+      </div>
+      <div id="navbar">
+        <a ui-sref="app.dashboard">Dashboard</a>
+        <a ui-sref="app.droplist.grid">View droplists</a>
+        <a ui-sref="app.droplist.detail">Create New droplist</a>
+      </div>
+    </header>
+    <div id="container">
+      <div ui-view></div>
+    </div>
+    <footer>
+      <hr>
+      <div class="grid ui">
+        <div class="col-md-4">
+          About Us
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+  <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- endbower -->
+
+  <!-- inject:js -->
+  <script src="app/app.module.js"></script>
+  <script src="app/core/core.module.js"></script>
+  <script src="app/core/authentication.factory.js"></script>
+  <script src="app/core/authInterceptor.service.js"></script>
+  <script src="app/core/buildings.factory.js"></script>
+  <script src="app/core/departments.factory.js"></script>
+  <script src="app/core/drivers.factory.js"></script>
+  <script src="app/core/droplists.factory.js"></script>
+  <script src="app/core/sections.factory.js"></script>
+  <script src="app/core/stockers.factory.js"></script>
+  <script src="app/core/users.factory.js"></script>
+  <script src="app/dashboard/dashboard.controller.js"></script>
+  <script src="app/droplist/droplist.detail.controller.js"></script>
+  <script src="app/droplist/droplist.grid.controller.js"></script>
+  <script src="app/landing/landing.controller.js"></script>
+  <script src="app/login/login.controller.js"></script>
+  <script src="app/register/register.controller.js"></script>
+  <script src="app/test/test.controller.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

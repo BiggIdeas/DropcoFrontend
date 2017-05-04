@@ -1,0 +1,120 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    {{droplistDetailCtrl.title}}
+    <div class="row" ng-hide="droplistDetailCtrl.isNew">
+      <div class="col-xs-4">
+        {{droplistDetailCtrl.droplist.createdOnDate | date: 'shortDate'}}
+      </div>
+      <div class="col-xs-4">
+        {{droplistDetailCtrl.droplist.departmentName}}
+      </div>
+      <div class="col-xs-4">
+        {{droplistDetailCtrl.droplist.sectionName}}
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row" ng-show="droplistDetailCtrl.isNew">
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="droplistName">Droplist Name</label>
+          <input id="droplistName" type="text" class="form-control" ng-model="droplistDetailCtrl.droplist.droplistName">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="Department">Date</label>
+          <span id="Department" type="text" class="form-control" ng-readonly="true" ng-bind="droplistDetailCtrl.droplist.createdOnDate | date: 'shortDate' "/>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="Section">Department</label>
+          <select class="form-control" ng-options="department.departmentName for department in droplistDetailCtrl.departments" ng-model="droplistDetailCtrl.selectedDepartment" ng-change="droplistDetailCtrl.filterSections()">
+            <option value="" disabled selected>- Select department -</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="AisleNumber">Section</label>
+          <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.selectedSection">
+            <option value="" disabled selected>- Select section -</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table table-stripped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Aisle Number</th>
+              <th>Row</th>
+              <th>Column</th>
+              <th>Item Number</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="droplistItem in droplistDetailCtrl.droplist.droplistItems">
+              <td>{{$index+1}}</td>
+              <td>
+                <input type="number" class="form-control" ng-model="droplistItem.aisleNumber"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleNumber}}</p>
+              </td>
+              <td>
+                <input type="text" class="form-control" ng-model="droplistItem.aisleRow"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleRow}}</p>
+              </td>
+              <td>
+                <input type="number" class="form-control" ng-model="droplistItem.aisleColumn"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleColumn}}</p>
+              </td>
+              <td>
+                <input type="number" class="form-control" ng-model="droplistItem.itemNumber"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.itemNumber}}</p>
+              </td>
+              <td>
+                <input type="text" class="form-control" ng-model="droplistItem.description"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.description}}</p>
+              </td>
+              <td>
+                <input type="number" class="form-control" ng-model="droplistItem.quantity"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.quantity}}</p>
+              </td>
+              <td ng-show="!droplistDetailCtrl.isDriver">
+                <a ng-click="droplistDetailCtrl.remove(droplistItem)" class="btn btn-danger">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </a>
+              </td>
+              <td ng-show="droplistDetailCtrl.isDriver">
+                <a ng-click="droplistDetailCtrl.remove(droplistItem)" class="btn btn-success">
+                  <i class="glyphicon glyphicon-thumbs-up"></i>
+                </a>
+              </td>
+              <td ng-show="droplistDetailCtrl.isDriver">
+                <a ng-click="droplistDetailCtrl.remove(droplistItem)" class="btn btn-danger">
+                  <i class="glyphicon glyphicon-thumbs-down"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-success pull-right" ng-click="droplistDetailCtrl.addItem()">
+            <i class="glyphicon glyphicon-plus"></i> Add Item
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer clearfix" ng-show="droplistDetailCtrl.isNew">
+    <button class="btn btn-success pull-left" ng-click="droplistDetailCtrl.save()">
+    Save <i class="glyphicon glyphicon-save"></i>
+  </button>
+  </div>
+</div>
