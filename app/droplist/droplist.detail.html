@@ -56,39 +56,39 @@
               <th>Item Number</th>
               <th>Description</th>
               <th>Quantity</th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <th ng-show="droplistDetailCtrl.isNew"></th>
+              <th ng-show="droplistDetailCtrl.isDriver"></th>
+              <th ng-show="droplistDetailCtrl.isDriver"></th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="droplistItem in droplistDetailCtrl.droplist.droplistItems">
               <td>{{$index+1}}</td>
               <td>
-                <input type="number" class="form-control" ng-model="droplistItem.aisleNumber"></input>
+                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.aisleNumber"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleNumber}}</p>
               </td>
               <td>
-                <input type="text" class="form-control" ng-model="droplistItem.aisleRow"></input>
+                <input ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.aisleRow"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleRow}}</p>
               </td>
               <td>
-                <input type="number" class="form-control" ng-model="droplistItem.aisleColumn"></input>
+                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.aisleColumn"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleColumn}}</p>
               </td>
               <td>
-                <input type="number" class="form-control" ng-model="droplistItem.itemNumber"></input>
+                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.itemNumber"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.itemNumber}}</p>
               </td>
               <td>
-                <input type="text" class="form-control" ng-model="droplistItem.description"></input>
+                <input ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.description"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.description}}</p>
               </td>
               <td>
-                <input type="number" class="form-control" ng-model="droplistItem.quantity"></input>
+                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.quantity"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.quantity}}</p>
               </td>
-              <td ng-show="!droplistDetailCtrl.isDriver">
+              <td ng-show="droplistDetailCtrl.isNew">
                 <a ng-click="droplistDetailCtrl.remove(droplistItem)" class="btn btn-danger">
                   <i class="glyphicon glyphicon-trash"></i>
                 </a>
@@ -106,8 +106,11 @@
             </tr>
           </tbody>
         </table>
-        <button class="btn btn-success pull-right" ng-click="droplistDetailCtrl.addItem()">
+        <button ng-show="droplistDetailCtrl.isNew" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.addItem()">
             <i class="glyphicon glyphicon-plus"></i> Add Item
+        </button>
+        <button ng-show="!droplistDetailCtrl.isNew" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.editList()">
+            <i class="glyphicon glyphicon-edit"></i> Edit List
         </button>
       </div>
     </div>
