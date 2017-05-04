@@ -11,7 +11,7 @@
     function LoginController($state, authFactory) {
         var vm = this;
         vm.login = login;
-        
+
         function login() {
             authFactory.login(vm.employeeNumber, vm.password).then(
                 function(response) {

@@ -16,7 +16,7 @@
       $stateProvider
         .state('register', {
           url: '/register',
-          controller: 'RegisterController as register',
+          controller: 'RegisterController as registerCtrl',
           templateUrl: 'app/register/register.html'
         })
         .state('login', {
