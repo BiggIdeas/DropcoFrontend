@@ -1,15 +1,17 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    {{droplistDetailCtrl.title}}
     <div class="row" ng-hide="droplistDetailCtrl.isNew">
-      <div class="col-xs-4">
-        {{droplistDetailCtrl.droplist.createdOnDate | date: 'shortDate'}}
+      <div class="col-xs-3">
+        <label>List Name:</label> {{droplistDetailCtrl.title}}
       </div>
-      <div class="col-xs-4">
-        {{droplistDetailCtrl.droplist.departmentName}}
+      <div class="col-xs-3">
+      <label>Date:</label> {{droplistDetailCtrl.droplist.createdOnDate | date: 'shortDate'}}
       </div>
-      <div class="col-xs-4">
-        {{droplistDetailCtrl.droplist.sectionName}}
+      <div class="col-xs-3">
+        <label>Department:</label> {{droplistDetailCtrl.droplist.departmentName}}
+      </div>
+      <div class="col-xs-3">
+        <label>Section:</label> {{droplistDetailCtrl.droplist.sectionName}}
       </div>
     </div>
   </div>
@@ -46,11 +48,11 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <table class="table table-stripped">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th></th>
-              <th>Aisle Number</th>
+              <th>Aisle</th>
               <th>Row</th>
               <th>Column</th>
               <th>Item Number</th>
