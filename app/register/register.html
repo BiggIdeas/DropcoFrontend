@@ -1,49 +1,47 @@
-<form ng-submit="registerCtrl.registerDets()">
-    <h3>Employee Registration</h3>
-    <div class="form-group row">
-        <div class="col-md-6">
-            <label for="">First Name:</label>
-            <input type="text" class="form-control" ng-model="registerCtrl.registration.firstName">
-        </div>
-        <div class="col-md-6">
-            <label for="">Last Name:</label>
-            <input type="text" class="form-control" ng-model="registerCtrl.registration.lastName">
-        </div>
-        <div class="col-md-6">
-            <label for="">Employee Number:</label>
-            <input type="number" class="form-control" ng-model="registerCtrl.registration.employeeNumber">
-        </div>
-        <div class="col-md-6">
-            <label for="">Email:</label>
-            <input type="email" class="form-control" ng-model="registerCtrl.registration.emailAddress">
-        </div>
-        <div class="col-md-6">
-            <label for="">Phone #:</label>
-            <input type="text" class="form-control" ng-model="registerCtrl.registration.cellphone">
-        </div>
-        <div class="col-md-6">
-            <label for="">Role:</label>
-            <select class="form-control" ng-options="role for role in registerCtrl.roles" ng-model="registerCtrl.selectedRole">
-      <option value="" disabled selected>- Select Role -</option>
-    </select>
-        </div>
+<form ng-submit="registerCtrl.registerEmployee()">
+  <h3>Employee Registration</h3>
+  <div class="form-group row">
+    <!-- <div class="col-md-12">
+      <label for="">Username:</label>
+      <span class="form-control" ng-readonly="true" ng-model="registerCtrl.employee.employeeNumber" />
+    </div> -->
+    <div class="col-md-6">
+      <label for="">First Name:</label>
+      <input type="text" class="form-control" ng-model="registerCtrl.employee.firstName">
+    </div>
+    <div class="col-md-6">
+      <label for="">Last Name:</label>
+      <input type="text" class="form-control" ng-model="registerCtrl.employee.lastName">
+    </div>
+    <div class="col-md-6">
+      <label for="">Employee Number:</label>
+      <input type="number" class="form-control" ng-model="registerCtrl.employee.employeeNumber">
+    </div>
+    <div class="col-md-6">
+      <label for="">Role:</label>
+      <select class="form-control" ng-options="role for role in registerCtrl.roles" ng-model="registerCtrl.employee.selectedRole">
+        <option value="" disabled selected> - Select Role - </option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="">Email:</label>
+      <input type="email" class="form-control" ng-model="registerCtrl.employee.emailAddress">
+    </div>
+    <div class="col-md-6">
+      <label for="">Phone #:</label>
+      <input type="text" class="form-control" ng-model="registerCtrl.employee.cellphone">
     </div>
 
-    <h3 class="ui dividing header">Login Information</h3>
-    <div class="three fields">
-        <div class="field">
-            <label for="">Username:</label>
-            <span class="form-control" ng-readonly="true" ng-model="registerCtrl.registration.employeeNumber"/>
-        </div>
-        <div class="field">
-            <label for="">Password:</label>
-            <input type="password" class="form-control" ng-model="registerCtrl.registration.password">
-        </div>
-        <div class="field">
-            <label for="">Confirm Password:</label>
-            <input type="password" class="form-control" ng-model="registerCtrl.registration.confirmPassword">
-        </div>
+    <!-- <h3>Login Information</h3> -->
+    <div class="col-md-6">
+      <label for="">Password:</label>
+      <input type="password" class="form-control" ng-model="registerCtrl.employee.password">
     </div>
-
-    <button class="ui teal right floated button" type="submit">Register</button>
+    <div class="col-md-6">
+      <label for="">Confirm Password:</label>
+      <input type="password" class="form-control" ng-model="registerCtrl.employee.confirmPassword">
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right" type="submit">Register</button>
+    </div>
 </form>
