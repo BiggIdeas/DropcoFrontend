@@ -5,23 +5,14 @@
     .module('app.core')
     .controller('RegisterController', RegisterController);
 
-  RegisterController.$inject = ['authFactory', '$stateParams', '$state', 'rolesFactory'];
+  RegisterController.$inject = ['authFactory', '$stateParams', '$state', 'rolesFactory', 'buildingsFactory'];
 
   /* @ngInject */
-  function RegisterController(authFactory, $stateParams, $state, rolesFactory) {
+  function RegisterController(authFactory, $stateParams, $state, rolesFactory, buildingsFactory) {
     var vm = this;
 
     vm.title = 'RegisterController';
-    vm.employee = {
-      firstName: '',
-      lastName: '',
-      employeeNumber: '',
-      role: '',
-      cellphone: '',
-      emailAddress: '',
-      password: '',
-      confirmPassword: ''
-    };
+    vm.employee = {};
 
     activate();
 
@@ -33,13 +24,20 @@
         }).catch(function(error) {
           console.error(error);
         });
+        buildingsFactory
+          .getAll()
+          .then(function(buildings) {
+            vm.buildings = buildings;
+          }).catch(function(error) {
+            console.error(error);
+          });
     }
 
     vm.registerEmployee = function registerEmployee() {
+      console.log(vm.employee);
       authFactory
         .register(vm.employee)
         .then(function(response) {
-          alert('Successful registration! Now login');
           authFactory
             .login(vm.employee.employeeNumber, vm.employee.password)
             .then(function() {

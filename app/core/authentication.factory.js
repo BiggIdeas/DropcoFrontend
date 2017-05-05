@@ -13,11 +13,11 @@
       initialize: initialize,
       register: register,
       login: login,
-      logout: logout
+      isAuth: false,
+      logout: logout,
+      username: ''
     };
 
-    service.isAuth = false;
-    service.username = '';
     return service;
 
     ////////////////
@@ -25,8 +25,8 @@
     function initialize() {
       var authData = localStorageService.get('authorizationData');
       if (authData) {
-        service.isAuth = false;
-        service.username = '';
+        service.isAuth = true;
+        service.username = authorizationData.username;
       }
     }
 
@@ -48,29 +48,26 @@
     }
 
     function login(username, password) {
-      var data = "grant_type=password&username=" + username + "&password=" + password;
-      var defer = $q.defer();
+      logout();
 
-      $http
-      .post(apiUrl + 'token', data, {
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-      })
-      .then(function(response) {
+      var data = "grant_type=password&username=" + username + "&password=" + password;
+      // var defer = $q.defer();
+
+      return $http
+        .post(apiUrl + 'users/login', data, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+        .then(function(response) {
           localStorageService.set('authorizationData', {
             token: response.data.access_token,
             username: username
           });
           service.isAuth = true;
           service.username = username;
-          defer.resolve(response.data);
-        },
-        function(error) {
-          logout();
-          console.error(error);
-          defer.reject(error);
+          return response.data;
         });
-
-      return defer.promise;
     }
 
     function logout() {

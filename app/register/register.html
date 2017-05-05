@@ -6,6 +6,18 @@
       <span class="form-control" ng-readonly="true" ng-model="registerCtrl.employee.employeeNumber" />
     </div> -->
     <div class="col-md-6">
+      <label for="">Building:</label>
+      <select class="form-control" ng-options="building.buildingId as building.buildingNumber + ' - ' + building.buildingName for building in registerCtrl.buildings" ng-model="registerCtrl.employee.buildingId">
+        <option value="" disabled selected> - Select Building - </option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="">Role:</label>
+      <select class="form-control" ng-options="role for role in registerCtrl.roles" ng-model="registerCtrl.employee.role">
+        <option value="" disabled selected> - Select Role - </option>
+      </select>
+    </div>
+    <div class="col-md-6">
       <label for="">First Name:</label>
       <input type="text" class="form-control" ng-model="registerCtrl.employee.firstName">
     </div>
@@ -16,12 +28,6 @@
     <div class="col-md-6">
       <label for="">Employee Number:</label>
       <input type="number" class="form-control" ng-model="registerCtrl.employee.employeeNumber">
-    </div>
-    <div class="col-md-6">
-      <label for="">Role:</label>
-      <select class="form-control" ng-options="role for role in registerCtrl.roles" ng-model="registerCtrl.employee.role">
-        <option value="" disabled selected> - Select Role - </option>
-      </select>
     </div>
     <div class="col-md-6">
       <label for="">Email:</label>
