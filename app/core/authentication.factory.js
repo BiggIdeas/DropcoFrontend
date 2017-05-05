@@ -34,30 +34,28 @@
       logout();
       var defer = $q.defer();
 
-      $http.post(apiUrl + 'register', registration).then(
-        function(response) {
-          defer.resolve(response.data);
-        },
-        function(error) {
-          console.log(error);
-          defer.reject(error);
-        }
-      );
-
+      $http
+        .post(apiUrl + 'register', registration)
+        .then(function(response) {
+            defer.resolve(response.data);
+          },
+          function(error) {
+            console.error(error);
+            defer.reject(error);
+          }
+        );
       return defer.promise;
     }
 
     function login(username, password) {
-      var data = "grant_type=password&username=" + username +
-        "&password=" + password;
+      var data = "grant_type=password&username=" + username + "&password=" + password;
       var defer = $q.defer();
 
-      $http.post(apiUrl + 'token', data, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      }).then(
-        function(response) {
+      $http
+      .post(apiUrl + 'token', data, {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      })
+      .then(function(response) {
           localStorageService.set('authorizationData', {
             token: response.data.access_token,
             username: username
@@ -68,10 +66,9 @@
         },
         function(error) {
           logout();
-          console.log(error);
+          console.error(error);
           defer.reject(error);
-        }
-      );
+        });
 
       return defer.promise;
     }
