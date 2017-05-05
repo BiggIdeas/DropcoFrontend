@@ -1,6 +1,10 @@
 DROPCO (Frontend)
 ==============
-This project is the frontend of the website **DROPCO**. Its purpose is to provide an efficient way to track warehouse products and a communication channel between stockers and drivers.
+- **This project:**
+  This project has the website code for the DROPCO app. 
+
+- **DROPCO Project:**
+   Its purpose is to provide an efficient way to track warehouse products and a communication channel between stockers and drivers.
 
 Getting started
 --------------
@@ -9,10 +13,19 @@ Getting started
 
 Prerequisites
 --------------
-Installing angular-ui-router, bootstrap, etc...
+Install the following dependencies/packages:
+- angular 
+  examples commands
+- angular-ui-router
+  examples commands
+- bootstrap
+  examples commands
+- jquery
+  examples commands
+- ngSweetAlert
   examples commands
 
-Techonlogies
+Built with
 --------------
 - Javascript
 - Angular
@@ -21,22 +34,12 @@ Techonlogies
 
 Authors
 --------------
-- Arlin Grijalba
-- Stephen Rosso
+- [Arlin Grijalba](https://github.com/arlin13)
+- [Stephen Rosso](https://github.com/stephenprosso)
 
 
 Aknowledgements
 --------------
-- Cameron Wilby
 - Origin Code Academy
-- John Papa
-
-
-*This will be Italic*
-
-**This will be Bold**
-
-- This will be a list item
-- This will be a list item
-
-    Add a indent and this will end up as code
+- [Cameron Wilby](https://github.com/cameronwilby)
+- [John Papa - Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
