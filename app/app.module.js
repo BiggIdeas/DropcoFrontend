@@ -49,5 +49,8 @@
           controller: 'DroplistGridController as droplistGridCtrl',
           templateUrl: 'app/droplist/droplist.grid.html'
         });
+    })
+    .run(function($state, $rootScope) {
+      $rootScope.$state = $state;
     });
 })();

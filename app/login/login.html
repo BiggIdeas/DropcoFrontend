@@ -1,11 +1,23 @@
-<form class="form-horizontal" ng-submit="loginCtrl.login">
-    <div class="form-group">
+<div class="col-md-12" id="loginPage">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" id="loginSection">
+    <img src="Images/logo.png" alt="">
+    <h2>Sign in</h2>
+    <h4>to continue to DROPCO</h4>
+    <br>
+    <form class="form-horizontal" ng-submit="loginCtrl.login">
+      <div class="form-group">
         <label for="employeeNumberId">Employee Number</label>
         <input id="employeeNumberId" type="text" class="form-control" ng-model="loginCtrl.employeeNumber">
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group">
         <label for="">Password</label>
         <input type="password" class="form-control" ng-model="loginCtrl.password">
-    </div>
-    <button class="btn btn-primary" ng-click="loginCtrl.login()">Login</button>
-</form>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary pull-right" ng-click="loginCtrl.login()">Login</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>

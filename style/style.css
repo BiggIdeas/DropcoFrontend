@@ -1,9 +1,35 @@
-#container {
-  padding-left: 5em;
-  padding-right: 5em;
+/***GENERAL***/
+
+
+/*GENERAL CONTROLS*/
+
+html {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
 }
 
-#jumbotron{
+header img {
+  height: 125px;
+}
+
+footer {
+  background-color: #eee;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  padding-top: -60px;
+  border-top: grey solid 1px;
+  color: #337ab7;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+/*GENERAL IDs*/
+
+#jumbotron {
   background-color: #eee;
 }
 
@@ -14,20 +40,53 @@
   padding: 10px 0 10px 20px;
 }
 
-#navbar a{
+#navbar a {
   color: white;
   margin: 0 15px;
 }
 
-.pointer{
+#container{
+  padding: 60px 15px 0;
+}
+
+/*GENERAL CLASSES*/
+
+.pointer {
   cursor: pointer;
 }
 
-header img{
-  height: 125px;
+
+/***ENDS GENERAL***/
+
+
+/**/
+
+
+/***PAGES***/
+
+
+/*LOGIN*/
+
+#loginPage {
+  /*margin: 100px 10px;*/
+  /*background-image: url('../Images/background.png');*/
+  background-color: lightgrey;
+  height: 100%;
 }
 
-footer{
-  background-color: #eee;
-
+#loginSection{
+  border: 1px solid black;
+  background-color: white;
 }
+
+#loginSection img{
+  height: 75px;
+}
+
+/*REGISTRATION*/
+
+
+/***ENDS PAGES***/
+
+
+/**/

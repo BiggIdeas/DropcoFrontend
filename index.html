@@ -19,15 +19,15 @@
 <body>
 
   <div id="wrapper">
-    <header>
+    <header ng-hide="$state.includes('login')">
       <div id="jumbotron" class="row">
         <div class="col-xs-3">
-          <img src="Images/logo.png" alt="" class="src">
+          <img src="Images/logo.png" alt="" class="src pointer" ui-sref="app.dashboard">
         </div>
         <div class="col-xs-6">
-          <input type="text"></input>
+          Search: <input type="text"/>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-3 text-right">
           <a ui-sref="login">Sign in</a>
         </div>
       </div>
@@ -38,9 +38,9 @@
       </div>
     </header>
     <div id="container">
-      <div ui-view></div>
+      <div ui-view class="row"></div>
     </div>
-    <footer>
+    <footer ng-hide="$state.includes('login')">
       <hr>
       <div class="grid ui">
         <div class="row ">
