@@ -15,7 +15,8 @@
       login: login,
       isAuth: false,
       logout: logout,
-      username: ''
+      username: '',
+      role: ''
     };
 
     return service;
@@ -27,6 +28,7 @@
       if (authData) {
         service.isAuth = true;
         service.username = authorizationData.username;
+        service.role = authorizationData.role;
       }
     }
 
@@ -62,10 +64,12 @@
         .then(function(response) {
           localStorageService.set('authorizationData', {
             token: response.data.access_token,
-            username: username
+            username: username,
+            role: response.data.role
           });
           service.isAuth = true;
           service.username = username;
+          service.role = response.data.role;
           return response.data;
         });
     }
@@ -74,6 +78,7 @@
       localStorageService.remove('authorizationData');
       service.isAuth = false;
       service.username = '';
+      service.role = '';
     }
   }
 })();

@@ -5,13 +5,15 @@
     .module('app.core')
     .controller('DroplistGridController', DroplistGridController);
 
-  DroplistGridController.$inject = ['droplistsFactory', 'departmentsFactory', 'sectionsFactory'];
+  DroplistGridController.$inject = ['droplistsFactory', 'departmentsFactory', 'sectionsFactory', 'authFactory'];
 
   /* @ngInject */
-  function DroplistGridController(droplistsFactory, departmentsFactory, sectionsFactory) {
+  function DroplistGridController(droplistsFactory, departmentsFactory, sectionsFactory, authFactory) {
     var vm = this;
 
     activate();
+
+    vm.role = authFactory.role;
 
     function activate() {
       droplistsFactory
