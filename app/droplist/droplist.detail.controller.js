@@ -5,10 +5,10 @@
         .module('app.core')
         .controller('DroplistDetailController', DroplistDetailController);
 
-    DroplistDetailController.$inject = ['droplistsFactory', 'departmentsFactory', 'sectionsFactory', '$stateParams', 'authFactory'];
+    DroplistDetailController.$inject = ['droplistsFactory', 'departmentsFactory', 'sectionsFactory', '$stateParams', 'authFactory', '$state'];
 
     /* @ngInject */
-    function DroplistDetailController(droplistsFactory, departmentsFactory, sectionsFactory, $stateParams, authFactory) {
+    function DroplistDetailController(droplistsFactory, departmentsFactory, sectionsFactory, $stateParams, authFactory, $state) {
         var vm = this;
         vm.save = save;
         vm.title = "New Droplist";
@@ -94,7 +94,9 @@
             vm.droplist.stockerId = 1;
             droplistsFactory
                 .create(vm.droplist)
-                .then(function() {
+                .then(function(response) {
+                  console.log(response);
+                  $state.go('app.droplist.detail', {id:response.droplistId});
                     // var droplistId = $stateParams.id;
                     //
                     // if (droplistId) {

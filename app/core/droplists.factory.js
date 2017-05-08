@@ -44,6 +44,7 @@
             return $http
                 .post(apiUrl + 'droplists', droplist)
                 .then(function(response) {
+                  console.log("create factory", response);
                     return response.data;
                 });
         }
