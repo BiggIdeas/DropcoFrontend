@@ -75,6 +75,7 @@
         }
 
         function save() {
+          console.log(vm.droplist);
           /* THIS NEEDS TO BE REPLACED WHEN AUTH WORKS */
           vm.droplist.stockerId = 1;
           vm.droplist.driverId = 2;

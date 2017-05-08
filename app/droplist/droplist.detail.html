@@ -79,12 +79,12 @@
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleColumn}}</p>
               </td>
               <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.itemNumber"></input>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.itemNumber}}</p>
+                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.product.itemNumber"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.product.itemNumber}}</p>
               </td>
               <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.description"></input>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.description}}</p>
+                <input ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.product.description"></input>
+                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.product.description}}</p>
               </td>
               <td>
                 <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.quantity"></input>
