@@ -5,10 +5,10 @@
         .module('app.core')
         .controller('DroplistDetailController', DroplistDetailController);
 
-    DroplistDetailController.$inject = ['droplistsFactory', 'departmentsFactory', 'sectionsFactory', '$stateParams', 'authFactory', '$state'];
+    DroplistDetailController.$inject = ['productsFactory', 'droplistsFactory', 'departmentsFactory', 'sectionsFactory', '$stateParams', 'authFactory', '$state'];
 
     /* @ngInject */
-    function DroplistDetailController(droplistsFactory, departmentsFactory, sectionsFactory, $stateParams, authFactory, $state) {
+    function DroplistDetailController(productsFactory, droplistsFactory, departmentsFactory, sectionsFactory, $stateParams, authFactory, $state) {
         var vm = this;
         vm.save = save;
         vm.title = "New Droplist";
@@ -60,6 +60,16 @@
                 .catch(function(error) {
                     console.error(error);
                 });
+                
+            productsFactory
+                .getAll()
+                .then(function(products) {
+                    vm.products = products;
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
+
         }
 
         vm.addItem = function addItem() {
@@ -75,46 +85,48 @@
         }
 
         function save() {
-          console.log(vm.droplist);
-          /* THIS NEEDS TO BE REPLACED WHEN AUTH WORKS */
-          vm.droplist.stockerId = 1;
-          vm.droplist.driverId = 2;
-          vm.droplist.buildingId = 1;
-          /* YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS */
-
-          vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
-
-          if($stateParams.id) {
-            droplistsFactory
-              .update($stateParams.id, vm.droplist)
-              .then(function() {
-                // tell user good things happened
-              });
-          } else {
+            console.log(vm.droplist);
+            /* THIS NEEDS TO BE REPLACED WHEN AUTH WORKS */
             vm.droplist.stockerId = 1;
-            droplistsFactory
-                .create(vm.droplist)
-                .then(function(response) {
-                  console.log(response);
-                  $state.go('app.droplist.detail', {id:response.droplistId});
-                    // var droplistId = $stateParams.id;
-                    //
-                    // if (droplistId) {
-                    //   droplistsFactory
-                    //     .update(vm.droplist.droplistId, vm.droplist)
-                    //     .then(function() {
-                    // SweetAlert.swal("Droplist saved!", "You did it!", "success");
-                    //     })
-                    // } else {
-                    //   console.log("print something")
-                    //   droplistsFactory
-                    //     .create(vm.droplist)
-                    //     .then(function() {
-                    // SweetAlert.swal("Droplist saved!", "Great Job!", "success");
-                    //     });
-                    // }
-                });
-          }
+            vm.droplist.driverId = 2;
+            vm.droplist.buildingId = 1;
+            /* YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS */
+
+            vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
+
+            if ($stateParams.id) {
+                droplistsFactory
+                    .update($stateParams.id, vm.droplist)
+                    .then(function() {
+                        // tell user good things happened
+                    });
+            } else {
+                vm.droplist.stockerId = 1;
+                droplistsFactory
+                    .create(vm.droplist)
+                    .then(function(response) {
+                        console.log(response);
+                        $state.go('app.droplist.detail', {
+                            id: response.droplistId
+                        });
+                        // var droplistId = $stateParams.id;
+                        //
+                        // if (droplistId) {
+                        //   droplistsFactory
+                        //     .update(vm.droplist.droplistId, vm.droplist)
+                        //     .then(function() {
+                        // SweetAlert.swal("Droplist saved!", "You did it!", "success");
+                        //     })
+                        // } else {
+                        //   console.log("print something")
+                        //   droplistsFactory
+                        //     .create(vm.droplist)
+                        //     .then(function() {
+                        // SweetAlert.swal("Droplist saved!", "Great Job!", "success");
+                        //     });
+                        // }
+                    });
+            }
 
         }
 

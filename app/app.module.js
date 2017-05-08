@@ -3,6 +3,7 @@
 
   angular
     .module('app', [
+      'ui.select',
       'ui.router',
       'app.core',
       'LocalStorageModule'
