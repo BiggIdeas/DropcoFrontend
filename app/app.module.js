@@ -6,6 +6,7 @@
       'ui.select',
       'ui.router',
       'app.core',
+      'ngSanitize',
       'LocalStorageModule'
     ])
     .value('apiUrl', 'http://localhost:50274/api/')

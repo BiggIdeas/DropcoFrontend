@@ -22,7 +22,7 @@
         function activate() {
             var droplistId = $stateParams.id;
 
-            if (droplistId) {
+            if (droplistId > 0) {
                 vm.isNew = false;
                 droplistsFactory
                     .getById(droplistId)
@@ -60,7 +60,7 @@
                 .catch(function(error) {
                     console.error(error);
                 });
-                
+
             productsFactory
                 .getAll()
                 .then(function(products) {
@@ -94,7 +94,7 @@
 
             vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
 
-            if ($stateParams.id) {
+            if ($stateParams.id > 0) {
                 droplistsFactory
                     .update($stateParams.id, vm.droplist)
                     .then(function() {
