@@ -80,15 +80,15 @@
               </td>
               <td>
                 <!-- <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.product.itemNumber"></input> -->
-              <ui-select ng-show="droplistDetailCtrl.isNew" ng-model="droplistDetailCtrl.selected" theme="bootstrap">
-                        <ui-select-match placeholder="El Numero">
-                            {{$select.selected.itemNumber}} {{$select.selected.description}}
-                        </ui-select-match>
-                        <ui-select-choices repeat="product in droplistDetailCtrl.products | filter: $select.search">
-                            <div ng-bind-html="product.itemNumber + ' ' + product.description | highlight: $select.search"></div>
-                            <smal ng-bind-html="product.itemNumber | highlight: $select.search"></smal>
-                        </ui-select-choices>
-                    </ui-select>
+              <ui-select ng-show="droplistDetailCtrl.isNew" ng-model="droplistItem.productId" theme="bootstrap">
+                    <ui-select-match placeholder="El Numero">
+                        {{$select.selected.itemNumber}} {{$select.selected.description}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="product.productId as product in droplistDetailCtrl.products | filter: $select.search">
+                        <div ng-bind-html="product.itemNumber + ' ' + product.description | highlight: $select.search"></div>
+                        <small ng-bind-html="product.itemNumber | highlight: $select.search"></small>
+                    </ui-select-choices>
+                </ui-select>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.product.itemNumber}}</p>
               </td>
               <td>

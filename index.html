@@ -36,7 +36,7 @@
       <div id="navbar">
         <a ui-sref="app.dashboard">Dashboard</a>
         <a ui-sref="app.droplist.grid">View droplists</a>
-        <a ui-sref="app.droplist.detail" ui-sref-opts="{ reload: true }">Create New droplist</a>
+        <a ui-sref="app.droplist.detail({ id: 0 })" ui-sref-opts="{ reload: true }">Create New droplist</a>
       </div>
     </header>
     <div id="container">
@@ -71,6 +71,7 @@
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
   <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
   <script src="bower_components/angular-ui-select/dist/select.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <!-- endbower -->
 
   <!-- inject:js -->
