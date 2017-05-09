@@ -1,1 +1,20 @@
-<pre>{{productCtrl.products}}</pre>
+<!-- <pre>{{productCtrl.products}}</pre> -->
+
+<h1>Products</h1>
+
+<table class="table striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Item number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in productCtrl.products">
+      <td>{{$index+1}}</td>
+      <td>{{product.itemNumber}}</td>
+      <td>{{product.description}}</td>
+    </tr>
+  </tbody>
+</table>
