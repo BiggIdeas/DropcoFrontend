@@ -50,6 +50,11 @@
           url: '/grid',
           controller: 'DroplistGridController as droplistGridCtrl',
           templateUrl: 'app/droplist/droplist.grid.html'
+        })
+        .state('app.products', {
+          url: '/products',
+          controller: 'ProductController as productCtrl',
+          templateUrl: 'app/product/product.grid.html'
         });
     })
     .run(function($state, $rootScope) {
