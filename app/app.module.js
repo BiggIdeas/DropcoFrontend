@@ -55,6 +55,11 @@
           url: '/products',
           controller: 'ProductController as productCtrl',
           templateUrl: 'app/product/product.grid.html'
+        })
+        .state('app.sections', {
+          url: '/sections',
+          controller: 'SectionController as sectionCtrl',
+          templateUrl: 'app/section/section.grid.html'
         });
     })
     .run(function($state, $rootScope) {
