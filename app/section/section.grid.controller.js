@@ -18,6 +18,7 @@
                 .getAll()
                 .then(function(sections) {
                     vm.sections = sections;
+                    console.log(sections);
 
                 })
                 .catch(function(error) {
