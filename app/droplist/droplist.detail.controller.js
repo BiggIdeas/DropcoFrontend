@@ -22,8 +22,10 @@
         function activate() {
             var droplistId = $stateParams.id;
 
+
             if (droplistId > 0) {
                 vm.isNew = false;
+
                 droplistsFactory
                     .getById(droplistId)
                     .then(function(droplist) {
@@ -34,6 +36,7 @@
                     .catch(function(error) {
                         console.error(error);
                     });
+
             } else {
                 vm.droplist = {
                     droplistName: "",
@@ -42,7 +45,6 @@
                     droplistItems: []
                 };
             }
-
             departmentsFactory
                 .getAll()
                 .then(function(departments) {
@@ -76,8 +78,7 @@
             vm.droplist.droplistItems.push({});
         }
         vm.editList = function editList() {
-
-            vm.isNew = true;
+            vm.editable = true;
         }
 
         vm.remove = function remove(droplistItem) {
@@ -92,7 +93,7 @@
             vm.droplist.buildingId = 1;
             /* YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS */
 
-            vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
+        //   vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
 
             if ($stateParams.id > 0) {
                 droplistsFactory
@@ -133,7 +134,7 @@
         vm.filterSections = function filterSections() {
             vm.departmentSections = [];
             for (var i = 0; i < vm.sections.length; i++) {
-                if (vm.sections[i].departmentId == vm.selectedDepartment.departmentId)
+                if (vm.sections[i].departmentId == vm.droplist.departmentName.departmentId)
                     vm.departmentSections.push(vm.sections[i]);
             }
         }

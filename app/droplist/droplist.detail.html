@@ -32,17 +32,19 @@
       <div class="col-xs-6">
         <div class="form-group">
           <label for="Section">Department</label>
-          <select class="form-control" ng-options="department.departmentName for department in droplistDetailCtrl.departments" ng-model="droplistDetailCtrl.selectedDepartment" ng-change="droplistDetailCtrl.filterSections()">
+          <p>{{droplistDetailCtrl.droplist.departmentName}}</p>
+          <!-- <select class="form-control" ng-options="department.departmentName for department in droplistDetailCtrl.departments" ng-model="droplistDetailCtrl.droplist.departmentName" ng-change="droplistDetailCtrl.filterSections()">
             <option value="" disabled selected>- Select department -</option>
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="col-xs-6">
         <div class="form-group">
           <label for="AisleNumber">Section</label>
-          <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.selectedSection">
+          <p>{{droplistDetailCtrl.droplist.sectionName}}</p>
+          <!-- <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.sectionName">
             <option value="" disabled selected>- Select section -</option>
-          </select>
+          </select> -->
         </div>
       </div>
     </div>
@@ -55,8 +57,8 @@
               <th>Aisle</th>
               <th>Row</th>
               <th>Column</th>
-              <th>Item Number</th>
-              <th>Description</th>
+              <th>Item Number - Description</th>
+              <!-- <th>Description</th> -->
               <th>Quantity</th>
               <th ng-show="droplistDetailCtrl.isNew"></th>
               <th ng-show="droplistDetailCtrl.isDriver"></th>
@@ -67,37 +69,36 @@
             <tr ng-repeat="droplistItem in droplistDetailCtrl.droplist.droplistItems">
               <td>{{$index+1}}</td>
               <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.aisleNumber"></input>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleNumber}}</p>
+                <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="number" class="form-control" ng-model="droplistItem.aisleNumber"></input>
+                <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.aisleNumber}}</p>
               </td>
               <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.aisleRow"></input>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleRow}}</p>
+                <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="text" class="form-control" ng-model="droplistItem.aisleRow"></input>
+                <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.aisleRow}}</p>
               </td>
               <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.aisleColumn"></input>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.aisleColumn}}</p>
+                <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="number" class="form-control" ng-model="droplistItem.aisleColumn"></input>
+                <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.aisleColumn}}</p>
               </td>
               <td>
-                <!-- <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.product.itemNumber"></input> -->
-              <ui-select ng-show="droplistDetailCtrl.isNew" ng-model="droplistItem.productId" theme="bootstrap">
+
+              <ui-select ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" ng-model="droplistItem.productId" theme="bootstrap">
                     <ui-select-match placeholder="El Numero">
-                        {{$select.selected.itemNumber}} {{$select.selected.description}}
+                        {{$select.selected.itemNumber}}-{{$select.selected.description}}
                     </ui-select-match>
                     <ui-select-choices repeat="product.productId as product in droplistDetailCtrl.products | filter: $select.search">
                         <div ng-bind-html="product.itemNumber + ' ' + product.description | highlight: $select.search"></div>
-                        <small ng-bind-html="product.itemNumber | highlight: $select.search"></small>
                     </ui-select-choices>
                 </ui-select>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.product.itemNumber}}</p>
+                <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.product.itemNumber}} - {{droplistItem.product.description}}</p>
               </td>
-              <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.product.description"></input>
+              <!-- <td>
+                <input ng-readonly="true" ng-show="droplistDetailCtrl.isNew" type="text" class="form-control" ng-model="droplistItem.product.description"></input>
                 <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.product.description}}</p>
-              </td>
+              </td> -->
               <td>
-                <input ng-show="droplistDetailCtrl.isNew" type="number" class="form-control" ng-model="droplistItem.quantity"></input>
-                <p ng-hide="droplistDetailCtrl.isNew">{{droplistItem.quantity}}</p>
+                <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="number" class="form-control" ng-model="droplistItem.quantity"></input>
+                <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.quantity}}</p>
               </td>
               <td ng-show="droplistDetailCtrl.isNew">
                 <a ng-click="droplistDetailCtrl.remove(droplistItem)" class="btn btn-danger">
