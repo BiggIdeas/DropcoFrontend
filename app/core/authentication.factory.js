@@ -5,10 +5,10 @@
     .module('app.core')
     .factory('authFactory', authFactory);
 
-  authFactory.$inject = ['apiUrl', '$http', '$q', 'localStorageService'];
+  authFactory.$inject = ['apiUrl', '$http', '$q', 'localStorageService', '$rootScope'];
 
   /* @ngInject */
-  function authFactory(apiUrl, $http, $q, localStorageService) {
+  function authFactory(apiUrl, $http, $q, localStorageService, $rootScope) {
     var service = {
       initialize: initialize,
       register: register,
@@ -64,12 +64,16 @@
         .then(function(response) {
           localStorageService.set('authorizationData', {
             token: response.data.access_token,
-            username: username,
+            username: response.data.username,
             role: response.data.role
           });
           service.isAuth = true;
-          service.username = username;
+          service.username = response.data.username;
           service.role = response.data.role;
+
+          $rootScope.username = response.data.username;
+          $rootScope.role = response.data.role;
+
           return response.data;
         });
     }

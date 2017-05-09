@@ -16,9 +16,11 @@
             authFactory
               .login(vm.employeeNumber, vm.password)
               .then(function(response) {
+                console.log(response);
                     $state.go('app.dashboard');
                 },
                 function(error) {
+                  console.error(error);
                     alert(error.error_description);
                 }
             );

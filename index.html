@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./Images/favicon.ico">
+  <title>DROPCO</title>
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
@@ -26,17 +27,18 @@
           <img src="Images/logo.png" alt="" class="src pointer" ui-sref="app.dashboard">
         </div>
         <div class="col-xs-6">
-          Search: <input type="text"/>
+          Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
         </div>
         <!-- ng-show="loginCtrl.role" -->
-        <div class="col-xs-3 text-right" >
+        <!-- <div class="col-xs-3 text-right" >
           <a ui-sref="login">Sign out</a>
-        </div>
+        </div> -->
       </div>
       <div id="navbar">
         <a ui-sref="app.dashboard">Dashboard</a>
         <a ui-sref="app.droplist.grid">View droplists</a>
         <a ui-sref="app.droplist.detail" ui-sref-opts="{ reload: true }">Create New droplist</a>
+        <a href="#" class="pull-right"> Hi, {{username}}! <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> </a>
       </div>
     </header>
     <div id="container">
