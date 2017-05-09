@@ -34,15 +34,19 @@ footer {
 }
 
 #navbar {
-  margin-bottom: 25px;
+  /*margin-bottom: 25px;*/
   background-color: #337ab7;
   font-size: 22px;
-  padding: 10px 0 10px 20px;
+  /*padding: 10px 0 10px 20px;*/
 }
 
-#navbar a {
+#navbar ul{
+  background-color: #337ab7;
+}
+
+#navbar a, #navbar p, #navbar li {
   color: white;
-  margin: 0 15px;
+  /*margin: 0 15px;*/
 }
 
 #container{
