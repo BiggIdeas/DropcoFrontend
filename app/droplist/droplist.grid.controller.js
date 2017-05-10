@@ -19,6 +19,7 @@
       getDroplists();
       getDepartments();
       getSections();
+      // vm.filterDroplists();
     }
 
     function getDroplists() {

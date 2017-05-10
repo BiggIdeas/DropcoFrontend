@@ -87,7 +87,8 @@
           templateUrl: 'app/section/section.grid.html'
         });
     })
-    .run(function($state, $rootScope) {
+    .run(function($state, $rootScope, authFactory) {
       $rootScope.$state = $state;
+      authFactory.initialize();
     });
 })();

@@ -24,11 +24,12 @@
     ////////////////
 
     function initialize() {
+      debugger;
       var authData = localStorageService.get('authorizationData');
       if (authData) {
         service.isAuth = true;
-        service.username = authorizationData.username;
-        service.role = authorizationData.role;
+        service.username = authData.username;
+        service.role = authData.role;
       }
     }
 
@@ -70,9 +71,6 @@
           service.isAuth = true;
           service.username = response.data.username;
           service.role = response.data.role;
-
-          $rootScope.username = response.data.username;
-          $rootScope.role = response.data.role;
 
           return response.data;
         });

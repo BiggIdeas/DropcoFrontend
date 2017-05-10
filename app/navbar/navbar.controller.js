@@ -15,10 +15,7 @@
 
         function activate() {
             vm.username = authFactory.username;
-            console.log("navbar ctrl authf: " , authFactory);
-            console.log("navbar ctrl username: " , authFactory.username);
-            console.log("navbar ctrl role: " , authFactory.role);
-            // console.log("navbar ctrl username: " , authFactory.service.username);
+            vm.role = authFactory.role;
         }
     }
 })();
