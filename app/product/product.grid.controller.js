@@ -29,6 +29,10 @@
         });
     }
 
+    vm.searchProduct = function searchProduct() {
+      console.log("hi");
+    }
+
     vm.addNewProduct = function addNewProduct() {
       vm.addingNewProduct = true;
     }
@@ -43,6 +47,10 @@
         .catch(function(error) {
           console.error(error);
         });
+    }
+
+    vm.cancelSaveNewProduct = function cancelSaveNewProduct() {
+      vm.addingNewProduct = false;
     }
 
     function remove(product) {

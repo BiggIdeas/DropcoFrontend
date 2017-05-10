@@ -51,6 +51,21 @@
           controller: 'DroplistGridController as droplistGridCtrl',
           templateUrl: 'app/droplist/droplist.grid.html'
         })
+        .state('app.employees', {
+          url: '/employees',
+          abstract: true,
+          template: '<div ui-view></div>'
+        })
+        .state('app.employees.detail', {
+          url: '/detail/:id',
+          controller: 'EmployeeDetailController as employeeDetailCtrl',
+          templateUrl: 'app/employee/employee.detail.html'
+        })
+        .state('app.employees.grid', {
+          url: '/grid',
+          controller: 'EmployeeGridController as employeeGridCtrl',
+          templateUrl: 'app/employee/employee.grid.html'
+        })
         .state('app.products', {
           url: '/products',
           abstract: true,

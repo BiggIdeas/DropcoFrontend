@@ -62,10 +62,10 @@
                 Hi, {{navbarCtrl.username}}! <span class="caret"></span>
               </p>
               <ul class="dropdown-menu">
-                <li><a href="#">Add employee</a></li>
+                <li><a ui-sref="app.employees.grid">Employees</a></li>
                 <li><a href="#">Add department</a></li>
                 <li><a href="#">Add section</a></li>
-                <li><a href="#">Add products</a></li>
+                <li><a ui-sref="app.products.grid">Products</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">
                   Settings <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
@@ -127,6 +127,7 @@
   <script src="app/core/departments.factory.js"></script>
   <script src="app/core/drivers.factory.js"></script>
   <script src="app/core/droplists.factory.js"></script>
+  <script src="app/core/employees.factory.js"></script>
   <script src="app/core/index.factory.js"></script>
   <script src="app/core/products.factory.js"></script>
   <script src="app/core/roles.factory.js"></script>
@@ -136,6 +137,7 @@
   <script src="app/dashboard/dashboard.controller.js"></script>
   <script src="app/droplist/droplist.detail.controller.js"></script>
   <script src="app/droplist/droplist.grid.controller.js"></script>
+  <script src="app/employee/employee.grid.controller.js"></script>
   <script src="app/landing/landing.controller.js"></script>
   <script src="app/login/login.controller.js"></script>
   <script src="app/navbar/navbar.controller.js"></script>

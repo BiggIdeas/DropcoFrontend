@@ -1,0 +1,72 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Employees list
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-12" ng-hide="employeeGridCtrl.addingNewEmployee">
+      Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </div>
+    <div class="col-xs-12" ng-hide="employeeGridCtrl.addingNewEmployee">
+      <div class="pull-right pointer" ng-click="employeeGridCtrl.addNewEmployee()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new employee
+      </div>
+    </div>
+    <form class="form-inline" ng-show="employeeGridCtrl.addingNewEmployee">
+      <h3>Adding new employee</h3>
+      <div class="form-group">
+        <label for="">First Name</label>
+        <input class="form-control" type="text" ng-model="employeeGridCtrl.newEmployee.firstName"/>
+      </div>
+      <div class="form-group">
+        <label for="">Last Name</label>
+        <input class="form-control" type="text"  ng-model="employeeGridCtrl.newEmployee.lastName"/>
+      </div>
+      <div class="form-group">
+        <label for="">Role</label>
+        <input class="form-control" type="number"  ng-model="employeeGridCtrl.newEmployee.role"/>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" ng-click="employeeGridCtrl.saveNewEmployee()">Save</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-danger" ng-click="employeeGridCtrl.cancelSaveNewEmployee()">Cancel</button>
+      </div>
+      <hr>
+    </form>
+    <div class="col-xs-12">
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <!-- <th>View</th>
+        <th>Edit</th> -->
+            <!-- <th>Remove</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="employee in employeeGridCtrl.employees">
+            <td>{{$index+1}}</td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.role}}</td>
+            <!-- <td ui-sref="app.employee.detail({id: employee.employeeId})">
+          <span class="glyphicon glyphicon-eye-open pointer" aria-hidden="true"></span>
+        </td>
+        <td >
+          <span class="glyphicon glyphicon-edit pointer" aria-hidden="true"></span>
+        </td> -->
+            <!-- <td ng-click="employeeGridCtrl.remove(employee)">
+          <span class="glyphicon glyphicon-remove pointer" aria-hideen="true"></span>
+        </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer" style="text-align:right">
+    Total employees: {{employeeGridCtrl.employees.length}}
+  </div>
+</div>

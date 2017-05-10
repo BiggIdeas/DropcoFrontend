@@ -6,7 +6,7 @@
   </div>
   <div class="panel-body">
     <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct">
-      Search: <input type="text" /> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </div>
     <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct">
       <div class="pull-right pointer" ng-click="productGridCtrl.addNewProduct()">
@@ -29,6 +29,9 @@
       </div>
       <div class="form-group">
         <button class="btn btn-primary" ng-click="productGridCtrl.saveNewProduct()">Save</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-danger" ng-click="productGridCtrl.cancelSaveNewProduct()">Cancel</button>
       </div>
       <hr>
     </form>
