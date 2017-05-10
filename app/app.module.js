@@ -53,7 +53,17 @@
         })
         .state('app.products', {
           url: '/products',
-          controller: 'ProductController as productCtrl',
+          abstract: true,
+          template: '<div ui-view></div>'
+        })
+        .state('app.products.detail', {
+          url: '/detail/:id',
+          controller: 'ProductDetailController as productDetailCtrl',
+          templateUrl: 'app/product/product.detail.html'
+        })
+        .state('app.products.grid', {
+          url: '/grid',
+          controller: 'ProductGridController as productGridCtrl',
           templateUrl: 'app/product/product.grid.html'
         })
         .state('app.sections', {
