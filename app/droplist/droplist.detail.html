@@ -42,7 +42,7 @@
         <div class="form-group">
           <label for="AisleNumber">Section</label>
           <!-- <p>{{droplistDetailCtrl.droplist.sectionName}}</p> -->
-          <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.sectionName">
+          <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections track by section.sectionId" ng-model="droplistDetailCtrl.droplist.sectionName">
             <option value="" disabled selected>- Select section -</option>
           </select>
         </div>

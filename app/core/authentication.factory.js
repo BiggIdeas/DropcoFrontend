@@ -16,7 +16,8 @@
       isAuth: false,
       logout: logout,
       username: '',
-      role: ''
+      role: '',
+      userId: ''
     };
 
     return service;
@@ -29,6 +30,7 @@
         service.isAuth = true;
         service.username = authData.username;
         service.role = authData.role;
+        service.userId = authData.userId;
       }
     }
 
@@ -65,15 +67,18 @@
           localStorageService.set('authorizationData', {
             token: response.data.access_token,
             username: response.data.username,
-            role: response.data.role
+            role: response.data.role,
+            userId: response.data.userId
           });
           service.isAuth = true;
           service.username = response.data.username;
           service.role = response.data.role;
+          service.userId = response.data.userId;
 
           $rootScope.$broadcast('login-happened', {
             username: response.data.username,
-            role: response.data.role
+            role: response.data.role,
+            userId: response.data.userId
           });
 
           return response.data;
@@ -85,6 +90,7 @@
       service.isAuth = false;
       service.username = '';
       service.role = '';
+      service.userId = '';
     }
   }
 })();

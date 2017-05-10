@@ -94,8 +94,7 @@
         function save() {
             console.log(vm.droplist);
             /* THIS NEEDS TO BE REPLACED WHEN AUTH WORKS */
-            vm.droplist.stockerId = 1;
-            vm.droplist.driverId = 2;
+            vm.droplist.stockerId = authFactory.userId;
             vm.droplist.buildingId = 1;
             /* YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS */
 
@@ -108,7 +107,6 @@
                         // tell user good things happened
                     });
             } else {
-                vm.droplist.stockerId = 1;
                 droplistsFactory
                     .create(vm.droplist)
                     .then(function(response) {
