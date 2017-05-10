@@ -7,12 +7,19 @@
       Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </div>
     <div class="col-xs-12" ng-hide="employeeGridCtrl.addingNewEmployee">
-      <div class="pull-right pointer" ng-click="employeeGridCtrl.addNewEmployee()">
+      <!-- <div class="pull-right pointer" ng-click="employeeGridCtrl.addNewEmployee()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new employee
+      </div> -->
+      <div class="pull-right pointer" ui-sref="register">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new employee
       </div>
     </div>
     <form class="form-inline" ng-show="employeeGridCtrl.addingNewEmployee">
       <h3>Adding new employee</h3>
+      <div class="form-group">
+        <label for="">Employee Number</label>
+        <input class="form-control" type="text" ng-model="employeeGridCtrl.newEmployee.employeeNumber"/>
+      </div>
       <div class="form-group">
         <label for="">First Name</label>
         <input class="form-control" type="text" ng-model="employeeGridCtrl.newEmployee.firstName"/>
@@ -23,7 +30,10 @@
       </div>
       <div class="form-group">
         <label for="">Role</label>
-        <input class="form-control" type="number"  ng-model="employeeGridCtrl.newEmployee.role"/>
+        <select class="form-control" ng-options="role for role in employeeGridCtrl.roles" ng-model="employeeGridCtrl.newEmployee.role">
+          <option value="" disabled selected>- Select role -</option>
+        </select>
+        <!-- <input class="form-control" type="number"  ng-model="employeeGridCtrl.newEmployee.role"/> -->
       </div>
       <div class="form-group">
         <button class="btn btn-primary" ng-click="employeeGridCtrl.saveNewEmployee()">Save</button>
@@ -38,6 +48,7 @@
         <thead>
           <tr>
             <th></th>
+            <th>Employee Number</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Role</th>
@@ -49,6 +60,7 @@
         <tbody>
           <tr ng-repeat="employee in employeeGridCtrl.employees">
             <td>{{$index+1}}</td>
+            <td>{{employee.employeeNumber}}</td>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td>{{employee.role}}</td>

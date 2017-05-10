@@ -5,10 +5,10 @@
     .module('app.core')
     .controller('EmployeeGridController', EmployeeGridController);
 
-  EmployeeGridController.$inject = ['employeesFactory'];
+  EmployeeGridController.$inject = ['employeesFactory', 'rolesFactory'];
 
   /* @ngInject */
-  function EmployeeGridController(employeesFactory) {
+  function EmployeeGridController(employeesFactory, rolesFactory) {
     var vm = this;
     vm.addingNewEmployee = false;
 
@@ -16,6 +16,7 @@
 
     function activate() {
       getEmployee();
+      getRoles();
     }
 
     function getEmployee() {
@@ -23,6 +24,17 @@
         .getAll()
         .then(function(employees) {
           vm.employees = employees;
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    }
+
+    function getRoles() {
+      rolesFactory
+        .getAll()
+        .then(function(roles) {
+          vm.roles = roles;
         })
         .catch(function(error) {
           console.error(error);
@@ -38,6 +50,9 @@
     }
 
     vm.saveNewEmployee = function saveNewEmployee() {
+      // CHANGE THIS
+      vm.newEmployee.buildingId = 1;
+      // CHANGE THIS
       employeesFactory
         .create(vm.newEmployee)
         .then(function(newEmployee) {
@@ -49,7 +64,7 @@
         });
     }
 
-    vm.cancelSaveEmployee = function cancelSaveEmployee() {
+    vm.cancelSaveNewEmployee = function cancelSaveEmployee() {
       vm.addingNewEmployee = false;
     }
 

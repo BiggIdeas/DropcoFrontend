@@ -32,19 +32,19 @@
       <div class="col-xs-6">
         <div class="form-group">
           <label for="Section">Department</label>
-          <p>{{droplistDetailCtrl.droplist.departmentName}}</p>
-          <!-- <select class="form-control" ng-options="department.departmentName for department in droplistDetailCtrl.departments" ng-model="droplistDetailCtrl.droplist.departmentName" ng-change="droplistDetailCtrl.filterSections()">
+          <!-- <p>{{droplistDetailCtrl.droplist.departmentName}}</p> -->
+          <select class="form-control" ng-options="department.departmentName for department in droplistDetailCtrl.departments" ng-model="droplistDetailCtrl.droplist.departmentName" ng-change="droplistDetailCtrl.filterSections()">
             <option value="" disabled selected>- Select department -</option>
-          </select> -->
+          </select>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="form-group">
           <label for="AisleNumber">Section</label>
-          <p>{{droplistDetailCtrl.droplist.sectionName}}</p>
-          <!-- <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.sectionName">
+          <!-- <p>{{droplistDetailCtrl.droplist.sectionName}}</p> -->
+          <select class="form-control" ng-options="section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.sectionName">
             <option value="" disabled selected>- Select section -</option>
-          </select> -->
+          </select>
         </div>
       </div>
     </div>

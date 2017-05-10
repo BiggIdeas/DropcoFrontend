@@ -6,32 +6,37 @@
   </div>
   <div class="panel-body">
     <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct">
-      Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      Search: <input type="text" /> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </div>
     <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct">
       <div class="pull-right pointer" ng-click="productGridCtrl.addNewProduct()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new product
       </div>
     </div>
-    <form class="form-inline" ng-show="productGridCtrl.addingNewProduct">
+    <form class="col-xs-12" ng-show="productGridCtrl.addingNewProduct">
       <h3>Adding new product</h3>
-      <div class="form-group">
-        <label for="">Item number</label>
-        <input class="form-control" type="text" ng-model="productGridCtrl.newProduct.itemNumber"/>
-      </div>
-      <div class="form-group">
-        <label for="">Description</label>
-        <input class="form-control" type="text"  ng-model="productGridCtrl.newProduct.description"/>
-      </div>
-      <div class="form-group">
-        <label for="">Price</label>
-        <input class="form-control" type="number"  ng-model="productGridCtrl.newProduct.price"/>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" ng-click="productGridCtrl.saveNewProduct()">Save</button>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-danger" ng-click="productGridCtrl.cancelSaveNewProduct()">Cancel</button>
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <label for="">Item number</label>
+          <input class="form-control" type="text" ng-model="productGridCtrl.newProduct.itemNumber" />
+        </div>
+        <div class="col-xs-4">
+          <label for="">Description</label>
+          <input class="form-control" type="text" ng-model="productGridCtrl.newProduct.description" />
+        </div>
+        <div class="col-xs-3">
+          <label for="">Price</label>
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="productGridCtrl.newProduct.price">
+            <div class="input-group-addon">dlls</div>
+          </div>
+        </div>
+        <!-- <input class="form-control" type="number" ng-model="productGridCtrl.newProduct.price" /> -->
+        <div class="col-xs-2">
+          <button class="btn btn-primary form-control" ng-click="productGridCtrl.saveNewProduct()">Save</button>
+          <button class="btn btn-danger form-control" ng-click="productGridCtrl.cancelSaveNewProduct()">Cancel</button>
+        </div>
       </div>
       <hr>
     </form>
