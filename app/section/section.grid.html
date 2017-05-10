@@ -1,5 +1,5 @@
 <h1>Add a New Section</h1>
-
+<!--
 <table class="table striped">
   <thead>
     <tr>
@@ -17,4 +17,85 @@
 
 
   </tbody>
-</table>
+</table> -->
+
+
+<!-- <pre>{{productCtrl.products}}</pre> -->
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+    Sections list
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-12" ng-hide="sectionCtrl.addingNewSection">
+      Search: <input type="text" /> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </div>
+    <div class="col-xs-12" ng-hide="sectionCtrl.addingNewSection">
+      <div class="pull-right pointer" ng-click="sectionCtrl.addNewSection()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new section
+      </div>
+    </div>
+    <form class="col-xs-12" ng-show="sectionCtrl.addingNewSection">
+      <h3>Adding new section</h3>
+      <div class="form-group row">
+        <div class="col-xs-5">
+          <label for="">Section Name</label>
+          <input class="form-control" type="text" ng-model="sectionCtrl.newSection.sectionName" />
+        </div>
+        <div class="col-xs-5">
+          <label for="">Department</label>
+          <input class="form-control" type="text" ng-model="sectionCtrl.newSection.department" />
+        </div>
+        <!-- <div class="col-xs-3">
+          <label for="">Price</label>
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="productGridCtrl.newProduct.price">
+            <div class="input-group-addon">dlls</div>
+          </div>
+        </div> -->
+        <!-- <input class="form-control" type="number" ng-model="productGridCtrl.newProduct.price" /> -->
+        <div class="col-xs-2">
+          <button class="btn btn-primary form-control" ng-click="sectionCtrl.saveNewSection()">Save</button>
+          <button class="btn btn-danger form-control" ng-click="sectionCtrl.cancelSaveNewSection()">Cancel</button>
+        </div>
+      </div>
+      <hr>
+    </form>
+    <div class="col-xs-12">
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Item number</th>
+            <th>Description</th>
+            <!-- <th>Price</th> -->
+            <!-- <th>View</th>
+        <th>Edit</th> -->
+            <!-- <th>Remove</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="section in sectionCtrl.sections">
+            <td>{{$index+1}}</td>
+            <td>{{section.sectionName}}</td>
+            <td>{{section.departmentName}}</td>
+            <!-- <td>{{product.price | currency}}</td> -->
+            <!-- <td ui-sref="app.product.detail({id: product.productId})">
+          <span class="glyphicon glyphicon-eye-open pointer" aria-hidden="true"></span>
+        </td>
+        <td >
+          <span class="glyphicon glyphicon-edit pointer" aria-hidden="true"></span>
+        </td> -->
+            <!-- <td ng-click="productGridCtrl.remove(product)">
+          <span class="glyphicon glyphicon-remove pointer" aria-hideen="true"></span>
+        </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer" style="text-align:right">
+    Total sections: {{sectionCtrl.sections.length}}
+  </div>
+</div>
