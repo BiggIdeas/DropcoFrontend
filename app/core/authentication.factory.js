@@ -24,7 +24,6 @@
     ////////////////
 
     function initialize() {
-      debugger;
       var authData = localStorageService.get('authorizationData');
       if (authData) {
         service.isAuth = true;

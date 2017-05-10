@@ -26,6 +26,7 @@
       droplistsFactory
         .getAll()
         .then(function(droplists) {
+          console.log(droplists);
           vm.droplists = droplists;
         })
         .catch(function(error) {
