@@ -17,9 +17,15 @@
 
         activate();
 
-        vm.role = authFactory.role;
+
 
         function activate() {
+            vm.role = authFactory.role;
+            if (vm.role === "Driver") {
+                vm.isDriver = true;
+            } else {
+                vm.isDriver = false;
+            }
             var droplistId = $stateParams.id;
 
 
@@ -93,7 +99,7 @@
             vm.droplist.buildingId = 1;
             /* YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS */
 
-        //   vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
+            //   vm.droplist.sectionId = vm.droplist.selectedSection.sectionId;
 
             if ($stateParams.id > 0) {
                 droplistsFactory

@@ -71,6 +71,11 @@
           service.username = response.data.username;
           service.role = response.data.role;
 
+          $rootScope.$broadcast('login-happened', {
+            username: response.data.username,
+            role: response.data.role
+          });
+
           return response.data;
         });
     }

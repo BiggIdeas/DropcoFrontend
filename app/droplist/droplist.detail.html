@@ -61,8 +61,8 @@
               <!-- <th>Description</th> -->
               <th>Quantity</th>
               <th ng-show="droplistDetailCtrl.isNew"></th>
-              <th ng-show="droplistDetailCtrl.isDriver"></th>
-              <th ng-show="droplistDetailCtrl.isDriver"></th>
+              <th ng-show="droplistDetailCtrl.isDriver">Completed</th>
+              <th ng-show="droplistDetailCtrl.isDriver">Rejected</th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +121,7 @@
         <button ng-show="droplistDetailCtrl.isNew" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.addItem()">
             <i class="glyphicon glyphicon-plus"></i> Add Item
         </button>
-        <button ng-show="!droplistDetailCtrl.isNew" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.editList()">
+        <button ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.isDriver" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.editList()">
             <i class="glyphicon glyphicon-edit"></i> Edit List
         </button>
       </div>

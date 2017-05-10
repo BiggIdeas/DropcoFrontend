@@ -36,7 +36,7 @@
               <th>Stocker</th>
               <th>Driver</th>
               <th width="1%"></th>
-              <th width="1%"></th>
+              <th ng-hide="droplistGridCtrl.isDriver" width="1%"></th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +52,7 @@
                   <i class="glyphicon glyphicon-eye-open"></i>
                 </a>
               </td>
-              <td>
+              <td ng-hide="droplistGridCtrl.isDriver">
                 <a ng-click="droplistGridCtrl.remove(droplist)" class="btn btn-danger">
                   <i class="glyphicon glyphicon-trash"></i>
                 </a>
