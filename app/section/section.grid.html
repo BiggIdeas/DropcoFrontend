@@ -1,26 +1,4 @@
 <h1>Add a New Section</h1>
-<!--
-<table class="table striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Section Name</th>
-      <th>Department Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="section in sectionCtrl.sections">
-      <td>{{$index + 1}}</td>
-      <td>{{section.sectionName}}</td>
-      <td>{{section.departmentName}}</td>
-    </tr>
-
-
-  </tbody>
-</table> -->
-
-
-<!-- <pre>{{productCtrl.products}}</pre> -->
 <div class="panel panel-primary">
 
   <div class="panel-heading">
@@ -43,8 +21,11 @@
           <input class="form-control" type="text" ng-model="sectionCtrl.newSection.sectionName" />
         </div>
         <div class="col-xs-5">
-          <label for="">Department</label>
-          <input class="form-control" type="text" ng-model="sectionCtrl.newSection.department" />
+          <label for="Section">Department</label>
+          <!-- <p>{{droplistDetailCtrl.droplist.departmentName}}</p> -->
+          <select class="form-control" ng-options="department.departmentId as department.departmentName for department in sectionCtrl.departments" ng-model="sectionCtrl.newSection.departmentId">
+
+          </select>
         </div>
         <!-- <div class="col-xs-3">
           <label for="">Price</label>
@@ -69,10 +50,6 @@
             <th></th>
             <th>Item number</th>
             <th>Description</th>
-            <!-- <th>Price</th> -->
-            <!-- <th>View</th>
-        <th>Edit</th> -->
-            <!-- <th>Remove</th> -->
           </tr>
         </thead>
         <tbody>

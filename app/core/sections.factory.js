@@ -10,7 +10,9 @@
     /* @ngInject */
     function sectionsFactory($http, apiUrl) {
         var service = {
-            getAll: getAll
+            getAll: getAll,
+            create: create,
+            remove: remove
         };
 
         return service;
@@ -21,6 +23,21 @@
                 .then(function(response) {
                     return response.data;
                 });
+        }
+        function create(section) {
+          return $http
+            .post(apiUrl + 'sections', section)
+            .then(function(response) {
+              return response.data;
+            });
+        }
+
+        function remove(id) {
+          return $http
+            .delete(apiUrl + 'sections/' + id)
+            .then(function(response) {
+              return response.data;
+            });
         }
     }
 })();
