@@ -5,16 +5,17 @@
         .module('app.core')
         .controller('SectionController', SectionController);
 
-    SectionController.$inject = ['sectionsFactory'];
+    SectionController.$inject = ['sectionsFactory', 'departmentsFactory'];
 
     /* @ngInject */
-    function SectionController(sectionsFactory) {
+    function SectionController(sectionsFactory, departmentsFactory) {
         var vm = this;
 
         activate();
 
         function activate() {
             getSections();
+            getDepartments();
         }
 
         function getSections() {
@@ -29,6 +30,21 @@
                     console.log(error);
                 });
         }
+
+        function getDepartments(){
+
+          departmentsFactory
+              .getAll()
+              .then(function(departments) {
+                  vm.departments = departments;
+                  console.log(departments);
+
+              })
+              .catch(function(error) {
+                  console.log(error);
+              });
+
+        }
         vm.searchSection = function searchSection() {
 
             console.log("hi");
@@ -38,10 +54,11 @@
             vm.addingNewSection = true;
         }
         vm.saveNewSection = function saveNewSection() {
+          console.log(vm.newSection);
             sectionsFactory
                 .create(vm.newSection)
                 .then(function(newSection) {
-                    getProducts();
+                    getSections();
                     vm.addingNewSection = false;
                     clearControls();
                 })
@@ -58,7 +75,7 @@
             vm.newSection.departmentName = '';
 
         }
-        function remove(product) {
+        function remove(section) {
             sectionsFactory
                 .remove(section.id)
                 .then(function() {
