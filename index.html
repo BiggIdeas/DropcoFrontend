@@ -28,10 +28,6 @@
         </div>
         <div class="col-xs-6">
         </div>
-        <!-- ng-show="loginCtrl.role" -->
-        <!-- <div class="col-xs-3 text-right" >
-          <a ui-sref="login">Sign out</a>
-        </div> -->
       </div>
       <nav id="navbar" class="navbar navbar-default" ng-controller="NavbarController as navbarCtrl">
         <div class="container-fluid">
@@ -71,15 +67,12 @@
                   Settings <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                 </a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">
+                <li><a ng-click="navbarCtrl.logout()">
                   Log out <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                 </a></li>
               </ul>
             </li>
           </ul>
-          <!-- <a ui-sref="login" class="pull-right" data-toggle="dropdown">
-            Hi, {{username}}! <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-          </a> -->
         </div>
       </nav>
     </header>
