@@ -17,7 +17,8 @@
       logout: logout,
       username: '',
       role: '',
-      userId: ''
+      userId: '',
+      buildingId: ''
     };
 
     return service;
@@ -31,6 +32,7 @@
         service.username = authData.username;
         service.role = authData.role;
         service.userId = authData.userId;
+        service.buildingId = authData.buildingId;
       }
     }
 
@@ -68,17 +70,20 @@
             token: response.data.access_token,
             username: response.data.username,
             role: response.data.role,
-            userId: response.data.userId
+            userId: response.data.userId,
+            buildingId: response.data.buildingId
           });
           service.isAuth = true;
           service.username = response.data.username;
           service.role = response.data.role;
           service.userId = response.data.userId;
+          service.buildingId = response.data.buildingId;
 
           $rootScope.$broadcast('login-happened', {
             username: response.data.username,
             role: response.data.role,
-            userId: response.data.userId
+            userId: response.data.userId,
+            buildingId: response.data.buildingId
           });
 
           return response.data;
@@ -91,6 +96,7 @@
       service.username = '';
       service.role = '';
       service.userId = '';
+      service.buildingId = '';
     }
   }
 })();

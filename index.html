@@ -47,7 +47,7 @@
               <li>
                 <a ui-sref="app.droplist.grid">View droplists</a>
               </li>
-              <li>
+              <li ng-hide="navbarCtrl.role=='Driver'">
                 <a ui-sref="app.droplist.detail({ id: 0 })" ui-sref-opts="{ reload: true }">Create New droplist</a>
               </li>
             </ul>

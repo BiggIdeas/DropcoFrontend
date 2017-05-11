@@ -4,7 +4,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    Available droplists
+    Droplists
   </div>
   <div class="panel-body">
     <div class="row">
@@ -25,15 +25,27 @@
           </select>
         </div>
       </div>
-      <!-- <div class="col-xs-6">
+      <div class="col-xs-6">
         <div class="form-group">
-          <label for="Date">From</label>
-          <select class="form-control" ng-options="department.departmentName for department in droplistGridCtrl.departments" ng-model="droplistGridCtrl.selectedDepartment" ng-change="droplistGridCtrl.filterSections()">
-              <option value="" disabled selected>- Select department -</option>
-              <option value="">- All departments -</option>
+          <label for="Status">Status</label>
+          <select class="form-control" ng-change="droplistGridCtrl.filterDroplists()" ng-model="droplistGridCtrl.selectedStatus">
+            <option selected>All</option>
+            <option>Completed</option>
+            <option>Pending</option>
+            <option>Canceled</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <label for="From">From</label>
+          <select class="form-control" ng-change="droplistGridCtrl.filterDroplists()" ng-model="droplistGridCtrl.selectedDate">
+              <option value="" selected>Today</option>
+              <option value="">Week</option>
             </select>
         </div>
-      </div> -->
+      </div>
+      <hr class="col-xs-12">
       <div class="col-xs-12" ng-show="droplistGridCtrl.filteredDroplists.length > 0">
         <table class="table table-striped">
           <thead>
@@ -57,7 +69,7 @@
               <td>{{droplist.sectionName}}</td>
               <td>{{droplist.createdOnDate | date:'short'}}</td>
               <td>{{droplist.stockerName}}</td>
-              <td>{{droplist.createdOnDate | date:'short'}}</td>
+              <td>{{droplist.driverName}}</td>
               <td>{{droplist.driverName}}</td>
               <td>
                 <a ui-sref="app.droplist.detail({id: droplist.droplistId})" class="btn btn-default">
@@ -72,7 +84,6 @@
             </tr>
           </tbody>
         </table>
-
       </div>
     </div>
   </div>
