@@ -39,6 +39,7 @@
         .then(function(droplists) {
           vm.droplists = droplists;
           vm.filteredDroplists = droplists;
+          console.log(vm.droplists);
         })
         .catch(function(error) {
           console.error(error);
