@@ -17,8 +17,6 @@
 
         activate();
 
-
-
         function activate() {
             vm.role = authFactory.role;
             if (vm.role === "Driver") {
@@ -35,7 +33,6 @@
                 droplistsFactory
                     .getById(droplistId)
                     .then(function(droplist) {
-                        console.log(droplist);
                         vm.droplist = droplist;
                         vm.title = vm.droplist.droplistName;
                     })

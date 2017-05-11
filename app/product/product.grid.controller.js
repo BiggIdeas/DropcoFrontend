@@ -43,6 +43,7 @@
         .then(function(newProduct) {
           getProducts();
           vm.addingNewProduct = false;
+          clearControls();
         })
         .catch(function(error) {
           console.error(error);
@@ -51,6 +52,13 @@
 
     vm.cancelSaveNewProduct = function cancelSaveNewProduct() {
       vm.addingNewProduct = false;
+      clearControls();
+    }
+
+    function clearControls() {
+      vm.newProduct.itemNumber = '';
+      vm.newProduct.description = '';
+      vm.newProduct.print = '';
     }
 
     function remove(product) {

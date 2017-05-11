@@ -21,7 +21,6 @@
               vm.username = data.username;
               vm.role = data.role;
               vm.userId = data.userId;
-
             });
         }
     }
