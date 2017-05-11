@@ -10,8 +10,8 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="form-group">
-          <label for="Section">Department</label>
-          <select class="form-control" ng-options="department.departmentName for department in droplistGridCtrl.departments" ng-model="droplistGridCtrl.selectedDepartment" ng-change="droplistGridCtrl.filterSections()">
+          <label for="Department">Department</label>
+          <select id="Department" class="form-control" ng-options="department.departmentName for department in droplistGridCtrl.departments" ng-model="droplistGridCtrl.selectedDepartment" ng-change="droplistGridCtrl.filterSections()">
             <option value="" disabled selected>- Select department -</option>
             <option value="">- All departments -</option>
           </select>
@@ -19,21 +19,31 @@
       </div>
       <div class="col-xs-6">
         <div class="form-group">
-          <label for="AisleNumber">Section</label>
-          <select class="form-control" ng-options="section.sectionName for section in droplistGridCtrl.departmentSections" ng-model="droplistGridCtrl.selectedSection" ng-change="droplistGridCtrl.filterDroplists()" ng-disabled="droplistGridCtrl.isSectionsDisabled">
+          <label for="Section">Section</label>
+          <select id="Section" class="form-control" ng-options="section.sectionName for section in droplistGridCtrl.departmentSections" ng-model="droplistGridCtrl.selectedSection" ng-change="droplistGridCtrl.filterDroplists()" ng-disabled="droplistGridCtrl.isSectionsDisabled">
               <option value="" disabled selected>- Select section -</option>
           </select>
         </div>
       </div>
+      <!-- <div class="col-xs-6">
+        <div class="form-group">
+          <label for="Date">From</label>
+          <select class="form-control" ng-options="department.departmentName for department in droplistGridCtrl.departments" ng-model="droplistGridCtrl.selectedDepartment" ng-change="droplistGridCtrl.filterSections()">
+              <option value="" disabled selected>- Select department -</option>
+              <option value="">- All departments -</option>
+            </select>
+        </div>
+      </div> -->
       <div class="col-xs-12" ng-show="droplistGridCtrl.filteredDroplists.length > 0">
         <table class="table table-striped">
           <thead>
             <tr>
               <th></th>
-              <th>Droplist Name</th>
+              <th>Name</th>
               <th>Department</th>
               <th>Section</th>
-              <th>Stocker</th>
+              <th>Created on</th>
+              <th>By</th>
               <th>Driver</th>
               <th width="1%"></th>
               <th ng-hide="droplistGridCtrl.isDriver" width="1%"></th>
@@ -45,7 +55,9 @@
               <td>{{droplist.droplistName}}</td>
               <td>{{droplist.departmentName}}</td>
               <td>{{droplist.sectionName}}</td>
+              <td>{{droplist.createdOnDate | date:'short'}}</td>
               <td>{{droplist.stockerName}}</td>
+              <td>{{droplist.createdOnDate | date:'short'}}</td>
               <td>{{droplist.driverName}}</td>
               <td>
                 <a ui-sref="app.droplist.detail({id: droplist.droplistId})" class="btn btn-default">
@@ -63,5 +75,8 @@
 
       </div>
     </div>
+  </div>
+  <div class="panel-footer" style="text-align:right">
+    Showing <span style="font-weight: bold">{{droplistGridCtrl.filteredDroplists.length}}</span> of <span style="font-weight: bold">{{droplistGridCtrl.droplists.length}}</span> droplists
   </div>
 </div>

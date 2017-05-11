@@ -21,8 +21,7 @@
           function(error) {
             console.error(error);
             alert(error.error_description);
-          }
-        );
+          });
     }
   }
 })();
