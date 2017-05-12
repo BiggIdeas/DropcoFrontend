@@ -20,7 +20,8 @@
           },
           function(error) {
             console.error(error);
-            alert(error.error_description);
+            console.error(error.error_description);
+            // alert(error.error_description);
           });
     }
   }
