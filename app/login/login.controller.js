@@ -5,10 +5,10 @@
     .module('app.core')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$state', 'authFactory', '$stateParams'];
+  LoginController.$inject = ['$state', 'authFactory', '$stateParams', 'SweetAlert'];
 
   /* @ngInject */
-  function LoginController($state, authFactory, stateParams) {
+  function LoginController($state, authFactory, stateParams, SweetAlert) {
     var vm = this;
     vm.login = login;
 
@@ -19,9 +19,8 @@
             $state.go('app.dashboard');
           },
           function(error) {
+            SweetAlert.swal("User or password incorrect", "Try again", "error");
             console.error(error);
-            console.error(error.error_description);
-            // alert(error.error_description);
           });
     }
   }
