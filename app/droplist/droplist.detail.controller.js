@@ -5,10 +5,10 @@
     .module('app.core')
     .controller('DroplistDetailController', DroplistDetailController);
 
-  DroplistDetailController.$inject = ['productsFactory', 'droplistsFactory', 'departmentsFactory', 'sectionsFactory', '$stateParams', 'authFactory', '$state'];
+  DroplistDetailController.$inject = ['productsFactory', 'droplistsFactory', 'departmentsFactory', 'sectionsFactory', 'droplistItemFactory', 'authFactory', '$stateParams', '$state', 'SweetAlert'];
 
   /* @ngInject */
-  function DroplistDetailController(productsFactory, droplistsFactory, departmentsFactory, sectionsFactory, $stateParams, authFactory, $state) {
+  function DroplistDetailController(productsFactory, droplistsFactory, departmentsFactory, sectionsFactory, droplistItemFactory, authFactory, $stateParams, $state, SweetAlert) {
     var vm = this;
 
     vm.addItem = addItem;
@@ -16,6 +16,8 @@
     vm.editList = editList;
     vm.remove = remove;
     vm.filterSections = filterSections;
+    vm.markDroplistItemCompleted = markDroplistItemCompleted;
+    vm.markDroplistItemRejected = markDroplistItemRejected;
 
     activate();
 
@@ -44,7 +46,7 @@
         vm.droplist = {
           droplistName: "",
           createdOnDate: new Date(),
-          stockerId: 1, //take logged in stocker id
+          stockerId: authFactory.userId,
           droplistItems: []
         };
       }
@@ -103,6 +105,33 @@
       vm.droplist.droplistItems.splice(vm.droplist.droplistItems.indexOf(droplistItem), 1);
     }
 
+    function markDroplistItemCompleted(droplistItem) {
+      droplistItem.completed = new Date();
+      updateDroplistItem(droplistItem);
+    }
+
+    function markDroplistItemRejected(droplistItem) {
+      droplistItem.rejected = new Date();
+      updateDroplistItem(droplistItem);
+    }
+
+    function updateDroplistItem(droplistItem) {
+      if (vm.droplist.driverId == null) {
+        vm.droplist.driverId = authFactory.userId;
+      }
+      droplistsFactory
+      .update(vm.droplist.droplistId, vm.droplist);
+
+      droplistItemFactory
+        .update(droplistItem.droplistItemId, droplistItem)
+        .then(function(droplistItem) {
+          droplistItem.test = true;
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    }
+
     function save() {
       vm.droplist.stockerId = authFactory.userId;
       vm.droplist.buildingId = authFactory.buildingId;
@@ -111,31 +140,17 @@
         droplistsFactory
           .update($stateParams.id, vm.droplist)
           .then(function() {
-            // tell user good things happened
+            SweetAlert.swal("Droplist saved!", "Name: " + vm.droplist.droplistName, "success");
+            vm.editable = false;
           });
       } else {
         droplistsFactory
           .create(vm.droplist)
           .then(function(response) {
+            SweetAlert.swal("Droplist created!", "Name: " + vm.droplist.droplistName, "success");
             $state.go('app.droplist.detail', {
               id: response.droplistId
             });
-            // var droplistId = $stateParams.id;
-            //
-            // if (droplistId) {
-            //   droplistsFactory
-            //     .update(vm.droplist.droplistId, vm.droplist)
-            //     .then(function() {
-            // SweetAlert.swal("Droplist saved!", "You did it!", "success");
-            //     })
-            // } else {
-            //   console.log("print something")
-            //   droplistsFactory
-            //     .create(vm.droplist)
-            //     .then(function() {
-            // SweetAlert.swal("Droplist saved!", "Great Job!", "success");
-            //     });
-            // }
           });
       }
     }

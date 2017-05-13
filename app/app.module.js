@@ -7,7 +7,8 @@
       'ui.router',
       'app.core',
       'ngSanitize',
-      'LocalStorageModule'
+      'LocalStorageModule',
+      'oitozero.ngSweetAlert'
     ])
     .value('apiUrl', 'http://localhost:50274/api/')
     .config(function($stateProvider, $urlRouterProvider, $httpProvider) {

@@ -5,23 +5,34 @@
     .module('app.core')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$state', 'authFactory', '$stateParams'];
+  LoginController.$inject = ['$state', 'authFactory', '$stateParams', 'SweetAlert'];
 
   /* @ngInject */
-  function LoginController($state, authFactory, stateParams) {
+  function LoginController($state, authFactory, stateParams, SweetAlert) {
     var vm = this;
     vm.login = login;
+    vm.loading = false;
 
     function login() {
-      authFactory
-        .login(vm.employeeNumber, vm.password)
-        .then(function(response) {
-            $state.go('app.dashboard');
-          },
-          function(error) {
-            console.error(error);
-            alert(error.error_description);
-          });
+      vm.loading = true;
+      setTimeout(function() {
+        authFactory
+          .login(vm.employeeNumber, vm.password)
+          .then(function(response) {
+              vm.loading = false;
+              $state.go('app.dashboard');
+            },
+            function(error) {
+              showErrorMessage();
+            });
+      }, 750);
+    }
+
+    function showErrorMessage() {
+      setTimeout(function() {
+        SweetAlert.swal("User or password incorrect", "Try again", "error");
+        vm.loading = false;
+      }, 1000);
     }
   }
 })();

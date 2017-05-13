@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
   <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
   <!-- endbower -->
 
   <!-- inject:css -->
@@ -19,12 +21,11 @@
 </head>
 
 <body>
-
   <div id="wrapper">
     <header ng-hide="$state.includes('login')">
       <div id="jumbotron" class="row">
         <div class="col-xs-3">
-          <img src="Images/logo.png" alt="" class="src pointer" ui-sref="app.dashboard">
+          <img src="Images/logo.png" alt="" class="src pointer animated fadeInRightBig" ui-sref="app.dashboard">
         </div>
         <div class="col-xs-6">
         </div>
@@ -109,6 +110,7 @@
   <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
   <script src="bower_components/angular-ui-select/dist/select.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
   <!-- endbower -->
 
   <!-- inject:js -->
@@ -119,6 +121,7 @@
   <script src="app/core/buildings.factory.js"></script>
   <script src="app/core/departments.factory.js"></script>
   <script src="app/core/drivers.factory.js"></script>
+  <script src="app/core/droplistItem.factory.js"></script>
   <script src="app/core/droplists.factory.js"></script>
   <script src="app/core/employees.factory.js"></script>
   <script src="app/core/index.factory.js"></script>

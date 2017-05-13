@@ -14,6 +14,7 @@
     vm.filterDroplists = filterDroplists;
     vm.filterSections = filterSections;
     vm.remove = remove;
+    vm.loading = true;
 
     activate();
 
@@ -21,6 +22,8 @@
       vm.role = authFactory.role;
       getDepartments();
       getSections();
+      getStatuses();
+
       getDroplists();
       getEmployeeRole();
     }
@@ -31,18 +34,6 @@
       } else {
         vm.isDriver = false;
       }
-    }
-
-    function getDroplists() {
-      droplistsFactory
-        .getAll()
-        .then(function(droplists) {
-          vm.droplists = droplists;
-          vm.filteredDroplists = droplists;
-        })
-        .catch(function(error) {
-          console.error(error);
-        });
     }
 
     function getDepartments() {
@@ -72,6 +63,26 @@
         });
     }
 
+    function getStatuses() {
+      vm.statuses = ["All", "Completed", "Pending", "Canceled"];
+      vm.selectedStatus = vm.statuses[0];
+    }
+
+    function getDroplists() {
+      setTimeout(function() {
+        droplistsFactory
+          .getAll()
+          .then(function(droplists) {
+            vm.droplists = droplists;
+            vm.filteredDroplists = droplists;
+            vm.loading = false;
+          })
+          .catch(function(error) {
+            console.error(error);
+          });
+      }, 500);
+    }
+
     function filterSections() {
       if (vm.selectedDepartment.departmentName == 'All departments') {
         vm.filteredDroplists = vm.droplists;
@@ -95,6 +106,12 @@
 
     function filterDroplists() {
       vm.filteredDroplists = [];
+      filterByDepartmentAndSections();
+      filterByStatus();
+      filterByDate();
+    }
+
+    function filterByDepartmentAndSections() {
       if (vm.selectedSection != null && vm.selectedSection.sectionName == 'All sections') {
         for (var i = 0; i < vm.droplists.length; i++) {
           if (vm.droplists[i].departmentName == vm.selectedDepartment.departmentName)
@@ -106,6 +123,31 @@
             vm.filteredDroplists.push(vm.droplists[i]);
         }
       }
+    }
+
+    function filterByStatus() {
+      if (vm.selectedStatus != null) {
+        switch (vm.selectedStatus) {
+          case "All":
+            console.log("All");
+            break;
+          case "Completed":
+            console.log("Complete");
+            break;
+          case "Pending":
+            console.log("Pending");
+            break;
+          case "Canceled":
+            console.log("Cancel");
+            break;
+          default:
+            break;
+        }
+      }
+    }
+
+    function filterByDate() {
+
     }
 
     function remove(droplist) {

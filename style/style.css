@@ -74,17 +74,17 @@ footer {
 #loginPage {
   /*margin: 100px 10px;*/
   /*background-image: url('../Images/background.png');*/
-  background-color: lightgrey;
+  /*background-color: lightgrey;*/
   height: 100%;
 }
 
 #loginSection{
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   background-color: white;
 }
 
-#loginSection img{
-  height: 75px;
+#loginImg{
+  height: 300px;
 }
 
 /*REGISTRATION*/
