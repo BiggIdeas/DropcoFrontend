@@ -14,6 +14,7 @@
     vm.filterDroplists = filterDroplists;
     vm.filterSections = filterSections;
     vm.remove = remove;
+    vm.loading = true;
 
     activate();
 
@@ -62,21 +63,24 @@
         });
     }
 
-    function getStatuses(){
+    function getStatuses() {
       vm.statuses = ["All", "Completed", "Pending", "Canceled"];
       vm.selectedStatus = vm.statuses[0];
     }
 
     function getDroplists() {
-      droplistsFactory
-        .getAll()
-        .then(function(droplists) {
-          vm.droplists = droplists;
-          vm.filteredDroplists = droplists;
-        })
-        .catch(function(error) {
-          console.error(error);
-        });
+      setTimeout(function() {
+        droplistsFactory
+          .getAll()
+          .then(function(droplists) {
+            vm.droplists = droplists;
+            vm.filteredDroplists = droplists;
+            vm.loading = false;
+          })
+          .catch(function(error) {
+            console.error(error);
+          });
+      }, 500);
     }
 
     function filterSections() {
