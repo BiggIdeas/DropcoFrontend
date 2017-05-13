@@ -30,6 +30,8 @@
     "sweetalert": "^1.1.3",
     "angular-ui-select": "^0.19.8",
     "angular-sanitize": "^1.6.4",
-    "ngSweetAlert": "angular-sweetalert#^1.1.2"
+    "ngSweetAlert": "angular-sweetalert#^1.1.2",
+    "font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2"
   }
 }

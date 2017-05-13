@@ -11,17 +11,28 @@
   function LoginController($state, authFactory, stateParams, SweetAlert) {
     var vm = this;
     vm.login = login;
+    vm.loading = false;
 
     function login() {
-      authFactory
-        .login(vm.employeeNumber, vm.password)
-        .then(function(response) {
-            $state.go('app.dashboard');
-          },
-          function(error) {
-            SweetAlert.swal("User or password incorrect", "Try again", "error");
-            console.error(error);
-          });
+      vm.loading = true;
+      setTimeout(function() {
+        authFactory
+          .login(vm.employeeNumber, vm.password)
+          .then(function(response) {
+              vm.loading = false;
+              $state.go('app.dashboard');
+            },
+            function(error) {
+              showErrorMessage();
+            });
+      }, 750);
+    }
+
+    function showErrorMessage() {
+      setTimeout(function() {
+        SweetAlert.swal("User or password incorrect", "Try again", "error");
+        vm.loading = false;
+      }, 1000);
     }
   }
 })();
