@@ -116,16 +116,15 @@
     }
 
     function updateDroplistItem(droplistItem) {
-      if (vm.droplist.driverId == null) {
-        vm.droplist.driverId = authFactory.userId;
-      }
-      droplistsFactory
-      .update(vm.droplist.droplistId, vm.droplist);
+      // if (vm.droplist.driverId == null) {
+      //   vm.droplist.driverId = authFactory.userId;
+      // }
+      // droplistsFactory
+      //   .update(vm.droplist.droplistId, vm.droplist);
 
       droplistItemFactory
         .update(droplistItem.droplistItemId, droplistItem)
         .then(function(droplistItem) {
-          droplistItem.test = true;
         })
         .catch(function(error) {
           console.error(error);

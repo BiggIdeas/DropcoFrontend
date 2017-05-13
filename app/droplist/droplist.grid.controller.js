@@ -57,6 +57,7 @@
         .getAll()
         .then(function(sections) {
           vm.sections = sections;
+          vm.isSectionsDisabled = true;
         })
         .catch(function(error) {
           console.error(error);
@@ -64,7 +65,7 @@
     }
 
     function getStatuses() {
-      vm.statuses = ["All", "Completed", "Pending", "Canceled"];
+      vm.statuses = ["All", "Completed", "Pending"];
       vm.selectedStatus = vm.statuses[0];
     }
 
@@ -85,10 +86,10 @@
 
     function filterSections() {
       if (vm.selectedDepartment.departmentName == 'All departments') {
-        vm.filteredDroplists = vm.droplists;
+        // vm.filteredDroplists = vm.droplists;
         vm.isSectionsDisabled = true;
       } else {
-        vm.filteredDroplists = [];
+        // vm.filteredDroplists = [];
         vm.isSectionsDisabled = false;
         vm.departmentSections = [];
         for (var i = 0; i < vm.sections.length; i++) {
@@ -100,8 +101,8 @@
         });
         var lastItem = vm.departmentSections[vm.departmentSections.length - 1];
         vm.selectedSection = lastItem;
-        vm.filterDroplists();
       }
+      vm.filterDroplists();
     }
 
     function filterDroplists() {
@@ -112,15 +113,19 @@
     }
 
     function filterByDepartmentAndSections() {
-      if (vm.selectedSection != null && vm.selectedSection.sectionName == 'All sections') {
-        for (var i = 0; i < vm.droplists.length; i++) {
-          if (vm.droplists[i].departmentName == vm.selectedDepartment.departmentName)
-            vm.filteredDroplists.push(vm.droplists[i]);
-        }
+      if (vm.selectedDepartment.departmentName == 'All departments') {
+        vm.filteredDroplists = vm.droplists;
       } else {
-        for (var i = 0; i < vm.droplists.length; i++) {
-          if (vm.droplists[i].sectionId == vm.selectedSection.sectionId)
-            vm.filteredDroplists.push(vm.droplists[i]);
+        if (vm.selectedSection != null && vm.selectedSection.sectionName == 'All sections') {
+          for (var i = 0; i < vm.droplists.length; i++) {
+            if (vm.droplists[i].departmentName == vm.selectedDepartment.departmentName)
+              vm.filteredDroplists.push(vm.droplists[i]);
+          }
+        } else {
+          for (var i = 0; i < vm.droplists.length; i++) {
+            if (vm.droplists[i].sectionId == vm.selectedSection.sectionId)
+              vm.filteredDroplists.push(vm.droplists[i]);
+          }
         }
       }
     }
@@ -129,12 +134,16 @@
       if (vm.selectedStatus != null) {
         switch (vm.selectedStatus) {
           case "All":
+          // do nothing
             console.log("All");
             break;
           case "Completed":
+          // show  only Completed
+
             console.log("Complete");
             break;
           case "Pending":
+          // show only pending
             console.log("Pending");
             break;
           case "Canceled":
