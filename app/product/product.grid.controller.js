@@ -58,7 +58,7 @@
     function clearControls() {
       vm.newProduct.itemNumber = '';
       vm.newProduct.description = '';
-      vm.newProduct.print = '';
+      vm.newProduct.price = '';
     }
 
     function remove(product) {
