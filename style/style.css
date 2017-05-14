@@ -15,7 +15,9 @@ header img {
 .pointer {
   cursor: pointer;
 }
-
+.margin{
+  margin: 10px;
+}
 
 /* General ids
 -------------------------------------------------- */
@@ -52,6 +54,7 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
+  padding-top: 15px;
 }
 
 /* Login Page

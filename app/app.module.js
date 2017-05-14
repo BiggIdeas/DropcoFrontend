@@ -27,10 +27,14 @@
           controller: 'LoginController as loginCtrl',
           templateUrl: '/app/login/login.html'
         })
-        .state('aboutUs', {
-          url: '/aboutUs',
+        .state('knowTheTeam', {
+          url: '/knowTheTeam',
           // controller: 'AboutUsController as aboutUsCtrl',
-          templateUrl: '/app/aboutUs/aboutUs.html'
+          templateUrl: '/app/knowTheTeam/knowTheTeam.html'
+        })
+        .state('about', {
+          url: '/about',
+          templateUrl: '/app/about/about.html'
         })
         .state('app', {
           url: '/app',
