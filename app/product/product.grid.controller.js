@@ -5,17 +5,22 @@
     .module('app.core')
     .controller('ProductGridController', ProductGridController);
 
-  ProductGridController.$inject = ['productsFactory'];
+  ProductGridController.$inject = ['productsFactory', 'authFactory'];
 
   /* @ngInject */
-  function ProductGridController(productsFactory) {
+  function ProductGridController(productsFactory, authFactory) {
     var vm = this;
     vm.addingNewProduct = false;
 
     activate();
 
     function activate() {
+      getRole();
       getProducts();
+    }
+
+    function getRole() {
+      vm.role = authFactory.role;
     }
 
     function getProducts() {

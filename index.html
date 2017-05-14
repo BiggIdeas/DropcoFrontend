@@ -21,24 +21,22 @@
 </head>
 
 <body>
-  <div id="wrapper">
-    <header ng-hide="$state.includes('login')">
-      <div id="jumbotron" class="row">
-        <div class="col-xs-3">
-          <img src="Images/logo.png" alt="" class="src pointer animated fadeInRightBig" ui-sref="app.dashboard">
-        </div>
-        <div class="col-xs-6">
-        </div>
+
+  <!-- Header and navbar -->
+  <header ng-hide="$state.includes('login')">
+    <div id="jumbotron" class="navbar row">
+      <div class="col-xs-12">
+        <img src="Images/logo.png" alt="" class="pointer animated fadeInRightBig" ui-sref="app.dashboard">
       </div>
-      <nav id="navbar" class="navbar navbar-default" ng-controller="NavbarController as navbarCtrl">
+      <nav id="navbar" class="navbar navbar-default col-xs-12" ng-controller="NavbarController as navbarCtrl">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -76,12 +74,18 @@
           </ul>
         </div>
       </nav>
-    </header>
-    <div id="container">
-      <div ui-view class="row"></div>
     </div>
-    <!-- <footer ng-hide="$state.includes('login')">
-      <hr>
+  </header>
+
+  <!-- Page content -->
+  <div class="container">
+    <div class="page-header">DROPCO APP</div>
+    <div ui-view class="row"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer" ng-hide="$state.includes('login')">
+    <div class="container">
       <div class="grid ui">
         <div class="row ">
           <div class="col-md-4">
@@ -98,7 +102,7 @@
           </div>
         </div>
       </div>
-    </footer> -->
+    </div>
   </div>
 
   <!-- bower:js -->
