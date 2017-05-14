@@ -27,6 +27,11 @@
           controller: 'LoginController as loginCtrl',
           templateUrl: '/app/login/login.html'
         })
+        .state('aboutUs', {
+          url: '/aboutUs',
+          // controller: 'AboutUsController as aboutUsCtrl',
+          templateUrl: '/app/aboutUs/aboutUs.html'
+        })
         .state('app', {
           url: '/app',
           abstract: true,
