@@ -18,28 +18,42 @@
       <h4>Whole Store</h4>
       <p>Total Droplist Items created</p>
       <p style="color:#97BACD; font-weight:bold;">Droplist Items completed: {{dashboardCtrl.droplistItems.data[0]}}</p>
-      <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.droplistItems.data[1]}}</p>
-      <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.droplistItems.data[2]}}</p>
-    </div>
-
-    <h4 class="col-xs-12">By departments</h4>
-    <div class="col-xs-12">
-      <div class="col-xs-3" ng-repeat="department in dashboardCtrl.departments">
-        {{department.departmentName}}
-        <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
-      </div>
+      <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.droplistItems.data[1]}}</p>
+      <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.droplistItems.data[2]}}</p>
     </div>
     <hr class="col-xs-12" />
 
-    <h4 class="col-xs-12">By products</h4>
-    <div class="col-xs-12">
-      <div class="col-xs-6">
-        Con mas movimiento
-        <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+    <h4 class="col-xs-12">By departments</h4>
+    <div class="col-xs-12 center-text">
+      <div class="col-xs-4">
+        <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.hardlinesDroplistItems.data" chart-labels="dashboardCtrl.hardlinesDroplistItems.labels"></canvas>
+        <div class="info">
+          Hardlines
+          <p>Total Droplist Items created</p>
+          <p style="color:#97BACD; font-weight:bold;">Droplist Items completed: {{dashboardCtrl.hardlinesDroplistItems.data[0]}}</p>
+          <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.hardlinesDroplistItems.data[1]}}</p>
+          <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.hardlinesDroplistItems.data[2]}}</p>
+        </div>
       </div>
-      <div class="col-xs-6">
-        Con menos movimiento
-        <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+      <div class="col-xs-4">
+        <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.centerDroplistItems.data" chart-labels="dashboardCtrl.centerDroplistItems.labels"></canvas>
+        <div class="info">
+          Center
+          <p>Total Droplist Items created</p>
+          <p style="color:#97BACD; font-weight:bold;">Droplist Items completed: {{dashboardCtrl.centerDroplistItems.data[0]}}</p>
+          <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.centerDroplistItems.data[1]}}</p>
+          <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.centerDroplistItems.data[2]}}</p>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.foodsDroplistItems.data" chart-labels="dashboardCtrl.foodsDroplistItems.labels"></canvas>
+        <div class="info">
+          Foods
+          <p>Total Droplist Items created</p>
+          <p style="color:#97BACD; font-weight:bold;">Droplist Items completed: {{dashboardCtrl.foodsDroplistItems.data[0]}}</p>
+          <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.foodsDroplistItems.data[1]}}</p>
+          <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.foodsDroplistItems.data[2]}}</p>
+        </div>
       </div>
     </div>
     <hr class="col-xs-12" />

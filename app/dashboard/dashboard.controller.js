@@ -23,6 +23,12 @@
       getDepartments();
       getChartsData();
       getDroplistItems();
+      getHardlinesDroplistItems();
+      getCenterDroplistItems();
+      getFoodsDroplistItems();
+      // vm.hardlinesDroplistItems = getDepartmentDroplistItems("Hardlines");
+      // vm.centerDroplistItems = getDepartmentDroplistItems("Center");
+      // vm.foodsDroplistItems = getDepartmentDroplistItems("Foods");
     }
 
     function getDepartments() {
@@ -46,8 +52,39 @@
         .getDroplistItems()
         .then(function(droplistItems) {
           vm.droplistItems = droplistItems;
-          console.log(vm.droplistItems);
         });
     }
+
+    function getHardlinesDroplistItems() {
+      chartsFactory
+        .getHardlinesDroplistItems()
+        .then(function(departmentDroplistItems) {
+          vm.hardlinesDroplistItems = departmentDroplistItems;
+        });
+    }
+
+    function getCenterDroplistItems() {
+      chartsFactory
+        .getCenterDroplistItems()
+        .then(function(departmentDroplistItems) {
+          vm.centerDroplistItems = departmentDroplistItems;
+        });
+    }
+
+    function getFoodsDroplistItems() {
+      chartsFactory
+        .getFoodsDroplistItems()
+        .then(function(departmentDroplistItems) {
+          vm.foodsDroplistItems = departmentDroplistItems;
+        });
+    }
+
+    // function getDepartmentDroplistItems(departmentName) {
+    //   chartsFactory
+    //     .getDepartmentDroplistItems(departmentName)
+    //     .then(function(departmentDroplistItems) {
+    //       return departmentDroplistItems;
+    //     });
+    // }
   }
 })();

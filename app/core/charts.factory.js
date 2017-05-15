@@ -11,7 +11,11 @@
   function chartsFactory($http, apiUrl) {
     var service = {
       getTodaysDroplists: getTodaysDroplists,
-      getDroplistItems: getDroplistItems
+      getDroplistItems: getDroplistItems,
+      getHardlinesDroplistItems: getHardlinesDroplistItems,
+      getCenterDroplistItems: getCenterDroplistItems,
+      getFoodsDroplistItems: getFoodsDroplistItems,
+      getDepartmentDroplistItems: getDepartmentDroplistItems
     };
 
     return service;
@@ -27,6 +31,38 @@
     function getDroplistItems() {
       return $http
         .get(apiUrl + 'getDroplistItems')
+        .then(function(response) {
+          return response.data;
+        });
+    }
+
+    function getHardlinesDroplistItems() {
+      return $http
+        .get(apiUrl + 'getHardlinesDroplistItems')
+        .then(function(response) {
+          return response.data;
+        });
+    }
+
+    function getCenterDroplistItems() {
+      return $http
+        .get(apiUrl + 'getCenterDroplistItems')
+        .then(function(response) {
+          return response.data;
+        });
+    }
+
+    function getFoodsDroplistItems() {
+      return $http
+        .get(apiUrl + 'getFoodsDroplistItems')
+        .then(function(response) {
+          return response.data;
+        });
+    }
+
+    function getDepartmentDroplistItems(departmentName) {
+      return $http
+        .get(apiUrl + 'getDepartmentDroplistItems', departmentName)
         .then(function(response) {
           return response.data;
         });
