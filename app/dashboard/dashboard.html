@@ -1,1 +1,12 @@
-<h1>Im the dashboard controller</h1>
+<div id="managerDashboard" ng-show="dashboardCtrl.role=='Manager'">
+  <h3>Manager Dashboard</h3>
+  <canvas id="line" class="chart chart-line" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
+</div>
+
+<div id="driverDashboard" ng-show="dashboardCtrl.role=='Driver'">
+  <h3>Dashboard Dashboard</h3>
+</div>
+
+<div id="stockerDashboard" ng-show="dashboardCtrl.role=='Stocker'">
+  <h3>Stocker Dashboard</h3>
+</div>
