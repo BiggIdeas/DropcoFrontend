@@ -11,8 +11,8 @@
       'oitozero.ngSweetAlert',
       'chart.js'
     ])
-    // .value('apiUrl', 'http://localhost:50274/api/')
-    .value('apiUrl', 'https://biggIdeas-dropco-api.azurewebsites.net/api/')
+    .value('apiUrl', 'http://localhost:50274/api/')
+    // .value('apiUrl', 'https://biggIdeas-dropco-api.azurewebsites.net/api/')
     .value('inqstatsApiKey', '53033d30d2b47238')
     .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
