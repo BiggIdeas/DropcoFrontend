@@ -6,6 +6,7 @@
     .factory('authFactory', authFactory);
 
   authFactory.$inject = ['apiUrl', '$http', '$q', 'localStorageService', '$rootScope'];
+  // .factory('authorization', ['$rootScope', '$state', 'principal',
 
   /* @ngInject */
   function authFactory(apiUrl, $http, $q, localStorageService, $rootScope) {
@@ -13,8 +14,9 @@
       initialize: initialize,
       register: register,
       login: login,
-      isAuth: false,
       logout: logout,
+      isLoggedIn: isLoggedIn,
+      isAuth: false,
       username: '',
       role: '',
       userId: '',
@@ -98,5 +100,10 @@
       service.userId = '';
       service.buildingId = '';
     }
+
+    function isLoggedIn() {
+      return isAuth;
+    }
   }
+
 })();

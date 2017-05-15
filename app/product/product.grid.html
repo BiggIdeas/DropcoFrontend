@@ -8,7 +8,7 @@
     <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct">
       Search: <input type="text" /> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </div>
-    <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct">
+    <div class="col-xs-12" ng-hide="productGridCtrl.addingNewProduct || productGridCtrl.role == 'Driver'">
       <div class="pull-right pointer" ng-click="productGridCtrl.addNewProduct()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new product
       </div>
@@ -49,7 +49,7 @@
             <th>Description</th>
             <th>Price</th>
             <!-- <th>View</th>
-        <th>Edit</th> -->
+            <th>Edit</th> -->
             <!-- <th>Remove</th> -->
           </tr>
         </thead>

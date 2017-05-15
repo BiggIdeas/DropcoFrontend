@@ -8,9 +8,12 @@
       'app.core',
       'ngSanitize',
       'LocalStorageModule',
-      'oitozero.ngSweetAlert'
+      'oitozero.ngSweetAlert',
+      'chart.js'
     ])
     .value('apiUrl', 'http://localhost:50274/api/')
+    // .value('apiUrl', 'https://biggIdeas-dropco-api.azurewebsites.net/api/')
+    .value('inqstatsApiKey', '53033d30d2b47238')
     .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
       $httpProvider.interceptors.push('authInterceptorService');
@@ -26,6 +29,15 @@
           url: '/login',
           controller: 'LoginController as loginCtrl',
           templateUrl: '/app/login/login.html'
+        })
+        .state('knowTheTeam', {
+          url: '/knowTheTeam',
+          // controller: 'AboutUsController as aboutUsCtrl',
+          templateUrl: '/app/knowTheTeam/knowTheTeam.html'
+        })
+        .state('about', {
+          url: '/about',
+          templateUrl: '/app/about/about.html'
         })
         .state('app', {
           url: '/app',

@@ -1,1 +1,61 @@
-<h1>Im the dashboard controller</h1>
+<div id="managerDashboard" ng-show="dashboardCtrl.role=='Manager'">
+  <h3>Manager Dashboard</h3>
+  <div class="col-xs-12">
+    <div class="col-xs-10"></div>
+    <div class="col-xs-2 pull-right">
+      <select class="form-control" name="" id="">
+        <option value="">Today</option>
+        <option value="">Week</option>
+      </select>
+    </div>
+  </div>
+
+  <h4>By products</h4>
+  <div class="col-xs-12">
+    <div class="col-xs-6">
+      Con mas movimiento
+      <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+    </div>
+    <div class="col-xs-6">
+      Con menos movimiento
+      <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+    </div>
+  </div>
+  <hr class="col-xs-12"/>
+
+  <h4>By departments</h4>
+  <div class="col-xs-12">
+    <div class="col-xs-4" ng-repeat="department in dashboardCtrl.departments">
+      {{department.departmentName}}
+      <canvas id="line" class="chart chart-line" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
+    </div>
+  </div>
+  <hr class="col-xs-12"/>
+
+  <h4>By employee</h4>
+  <div class="col-xs-12">
+  </div>
+  <hr class="col-xs-12"/>
+
+  <h4>General</h4>
+  <div class="col-xs-4">
+    <canvas id="line" class="chart chart-line" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
+  </div>
+  <div class="col-xs-4">
+    <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+  </div>
+  <div class="col-xs-4">
+    <canvas id="doughnut" class="chart chart-doughnut" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels"></canvas>
+  </div>
+  <div class="col-xs-4">
+    <canvas id="pie" class="chart chart-pie" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-options="options"></canvas>
+  </div>
+</div>
+
+<div id="driverDashboard" ng-show="dashboardCtrl.role=='Driver'">
+  <h3>Dashboard Dashboard</h3>
+</div>
+
+<div id="stockerDashboard" ng-show="dashboardCtrl.role=='Stocker'">
+  <h3>Stocker Dashboard</h3>
+</div>
