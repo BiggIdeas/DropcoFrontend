@@ -58,15 +58,15 @@
               <th>Item Number - Description</th>
               <th>Quantity</th>
               <th ng-show="droplistDetailCtrl.isNew"></th>
-              <th ng-show="droplistDetailCtrl.role=='Driver' && !droplistDetailCtrl.editable">Completed</th>
-              <th ng-show="droplistDetailCtrl.role=='Driver' && !droplistDetailCtrl.editable">Rejected</th>
+              <th ng-show="!droplistDetailCtrl.editable">Completed</th>
+              <th ng-show="!droplistDetailCtrl.editable">Rejected</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="droplistItem in droplistDetailCtrl.droplist.droplistItems">
               <td>{{$index+1}}</td>
               <td>
-                <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="number" class="form-control" ng-model="droplistItem.aisleNumber" min="100" max="400"></input>
+                <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="number" class="form-control" ng-model="droplistItem.aisleNumber" min="100" max="999"></input>
                 <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.aisleNumber}}</p>
               </td>
               <td>
@@ -80,7 +80,7 @@
               </td>
               <td>
                 <ui-select ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" ng-model="droplistItem.productId" theme="bootstrap">
-                  <ui-select-match placeholder="El Numero">
+                  <ui-select-match placeholder="Item # - Description">
                     {{$select.selected.itemNumber}}-{{$select.selected.description}}
                   </ui-select-match>
                   <ui-select-choices repeat="product.productId as product in droplistDetailCtrl.products | filter: $select.search">
@@ -98,7 +98,7 @@
                   <i class="glyphicon glyphicon-trash"></i>
                 </a>
               </td>
-              <td ng-show="droplistDetailCtrl.role=='Driver' && !droplistDetailCtrl.editable">
+              <td ng-show="!droplistDetailCtrl.editable">
                 <div ng-show="!droplistItem.completed && !droplistItem.rejected">
                   <a ng-click="droplistDetailCtrl.markDroplistItemCompleted(droplistItem)" class="btn btn-success">
                     <i class="glyphicon glyphicon-thumbs-up"></i>
@@ -108,7 +108,7 @@
                   <i class="glyphicon glyphicon-ok"></i> Completed
                 </div>
               </td>
-              <td ng-show="droplistDetailCtrl.role=='Driver' && !droplistDetailCtrl.editable">
+              <td ng-show="!droplistDetailCtrl.editable">
                 <div ng-show="!droplistItem.completed && !droplistItem.rejected">
                   <a ng-click="droplistDetailCtrl.markDroplistItemRejected(droplistItem)" class="btn btn-danger">
                     <i class="glyphicon glyphicon-thumbs-down"></i>
@@ -121,12 +121,15 @@
             </tr>
           </tbody>
         </table>
+      <div ng-hide="droplistDetailCtrl.droplist.droplistItems.length > 0">
+        <p class="text-center">This droplist is empty</p>
+      </div>
         <button ng-show="droplistDetailCtrl.isNew" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.addItem()">
             <i class="glyphicon glyphicon-plus"></i> Add Item
         </button>
-        <button ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.isDriver && !droplistDetailCtrl.editable" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.editList()">
+        <!-- <button ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.isDriver && !droplistDetailCtrl.editable" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.editList()">
             <i class="glyphicon glyphicon-edit"></i> Edit List
-        </button>
+        </button> -->
         <!-- <button ng-show="droplistDetailCtrl.editable" class="btn btn-success pull-right" ng-click="droplistDetailCtrl.save()">
             <i class="glyphicon glyphicon-floppy-disk"></i> Save
         </button> -->

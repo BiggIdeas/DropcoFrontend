@@ -94,6 +94,11 @@
           controller: 'ProductGridController as productGridCtrl',
           templateUrl: 'app/product/product.grid.html'
         })
+        .state('app.departments', {
+          url: '/departments',
+          controller: 'DepartmentGridController as departmentGridCtrl',
+          templateUrl: 'app/department/department.grid.html'
+        })
         .state('app.sections', {
           url: '/sections',
           controller: 'SectionController as sectionCtrl',

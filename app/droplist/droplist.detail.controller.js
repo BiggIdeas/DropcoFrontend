@@ -37,16 +37,20 @@
           .then(function(droplist) {
             vm.droplist = droplist;
             vm.title = vm.droplist.droplistName;
+            console.log(vm.droplist);
           })
           .catch(function(error) {
             console.error(error);
           });
       } else {
+
+        var offset = -7;
+        var date = new Date(new Date().getTime() + offset * 3600 * 1000).toUTCString();
         vm.isNew = true;
         vm.title = "New Droplist";
         vm.droplist = {
           droplistName: "",
-          createdOnDate: new Date(),
+          createdOnDate: date,
           stockerId: authFactory.userId,
           droplistItems: []
         };
@@ -95,7 +99,7 @@
     }
 
     function getRows() {
-      vm.rows= ["A", "B", "C"];
+      vm.rows= ["A", "B", "C", "D"];
     }
 
     function addItem() {
