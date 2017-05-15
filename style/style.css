@@ -19,6 +19,9 @@ header img {
   margin: 10px;
 }
 
+.teamMemberCard{
+  height: 250px;
+}
 /* General ids
 -------------------------------------------------- */
 #jumbotron {
@@ -61,4 +64,18 @@ body {
 -------------------------------------------------- */
 #loginImg{
   height: 300px;
+}
+
+
+
+
+
+
+
+/* MEDIA QUERIES!!!!
+-------------------------------------------------- */
+@media only screen and (max-width: 500px) {
+  .teamMemberCard{
+    height: 150px;
+  }
 }
