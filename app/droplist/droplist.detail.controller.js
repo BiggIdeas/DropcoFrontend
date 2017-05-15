@@ -28,6 +28,7 @@
       getDepartments();
       getSections();
       getProducts();
+      getRows();
 
       if (droplistId > 0) {
         vm.isNew = false;
@@ -91,6 +92,10 @@
         .catch(function(error) {
           console.error(error);
         });
+    }
+
+    function getRows() {
+      vm.rows= ["A", "B", "C"];
     }
 
     function addItem() {
