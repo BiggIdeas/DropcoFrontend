@@ -10,46 +10,61 @@
     </div>
   </div>
 
-  <h4>By products</h4>
   <div class="col-xs-12">
-    <div class="col-xs-6">
-      Con mas movimiento
-      <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+    <div class="col-xs-4">
+      <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.droplistItems.data" chart-labels="dashboardCtrl.droplistItems.labels"></canvas>
     </div>
     <div class="col-xs-6">
-      Con menos movimiento
+      <h4>Whole Store</h4>
+      <p>Total Droplist Items created</p>
+      <p style="color:#97BACD; font-weight:bold;">Droplist Items completed: {{dashboardCtrl.droplistItems.data[0]}}</p>
+      <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.droplistItems.data[1]}}</p>
+      <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.droplistItems.data[2]}}</p>
+    </div>
+
+    <h4 class="col-xs-12">By departments</h4>
+    <div class="col-xs-12">
+      <div class="col-xs-3" ng-repeat="department in dashboardCtrl.departments">
+        {{department.departmentName}}
+        <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
+      </div>
+    </div>
+    <hr class="col-xs-12" />
+
+    <h4 class="col-xs-12">By products</h4>
+    <div class="col-xs-12">
+      <div class="col-xs-6">
+        Con mas movimiento
+        <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+      </div>
+      <div class="col-xs-6">
+        Con menos movimiento
+        <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
+      </div>
+    </div>
+    <hr class="col-xs-12" />
+
+    <h4 class="col-xs-12">By employee</h4>
+    <div class="col-xs-12">
+    </div>
+    <hr class="col-xs-12" />
+
+    <h4 class="col-xs-12">General</h4>
+    <div class="col-xs-3">
+      <canvas id="line" class="chart chart-line" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
+    </div>
+    <div class="col-xs-3">
       <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
     </div>
-  </div>
-  <hr class="col-xs-12"/>
-
-  <h4>By departments</h4>
-  <div class="col-xs-12">
-    <div class="col-xs-4" ng-repeat="department in dashboardCtrl.departments">
-      {{department.departmentName}}
-      <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
+    <div class="col-xs-3">
+      <canvas id="doughnut" class="chart chart-doughnut" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels"></canvas>
+    </div>
+    <div class="col-xs-3">
+      <canvas id="pie" class="chart chart-pie" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-options="options"></canvas>
     </div>
   </div>
-  <hr class="col-xs-12"/>
 
-  <h4>By employee</h4>
-  <div class="col-xs-12">
-  </div>
-  <hr class="col-xs-12"/>
 
-  <h4>General</h4>
-  <div class="col-xs-4">
-    <canvas id="line" class="chart chart-line" chart-data="dashboardCtrl.bigMac.data" chart-labels="dashboardCtrl.bigMac.labels"></canvas>
-  </div>
-  <div class="col-xs-4">
-    <canvas id="bar" class="chart chart-bar" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-series="dashboardCtrl.series"></canvas>
-  </div>
-  <div class="col-xs-4">
-    <canvas id="doughnut" class="chart chart-doughnut" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels"></canvas>
-  </div>
-  <div class="col-xs-4">
-    <canvas id="pie" class="chart chart-pie" chart-data="dashboardCtrl.data" chart-labels="dashboardCtrl.labels" chart-options="options"></canvas>
-  </div>
 </div>
 
 <div id="driverDashboard" ng-show="dashboardCtrl.role=='Driver'">
