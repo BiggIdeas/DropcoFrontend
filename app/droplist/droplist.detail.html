@@ -1,35 +1,35 @@
 <div class="panel panel-primary animated fadeIn">
   <div class="panel-heading">
     <div class="row" ng-hide="droplistDetailCtrl.isNew">
-      <div class="col-xs-3">
+      <div class="col-xs-6 col-sm-3 col-md-3">
         <label>List Name:</label> {{droplistDetailCtrl.title}}
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-6 col-sm-3 col-md-3">
         <label>Date:</label> {{droplistDetailCtrl.droplist.createdOnDate | date: 'shortDate'}}
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-6 col-sm-3 col-md-3">
         <label>Department:</label> {{droplistDetailCtrl.droplist.departmentName}}
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-6 col-sm-3 col-md-3">
         <label>Section:</label> {{droplistDetailCtrl.droplist.sectionName}}
       </div>
     </div>
   </div>
   <div class="panel-body">
     <div class="row" ng-show="droplistDetailCtrl.isNew">
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <div class="form-group">
           <label for="droplistName">Droplist Name</label>
           <input id="droplistName" type="text" class="form-control" ng-model="droplistDetailCtrl.droplist.droplistName">
         </div>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <div class="form-group">
           <label for="Department">Date</label>
           <span id="Department" type="text" class="form-control" ng-readonly="true" ng-bind="droplistDetailCtrl.droplist.createdOnDate | date: 'shortDate' " />
         </div>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <div class="form-group">
           <label for="Section">Department</label>
           <select class="form-control" ng-options="department.departmentName for department in droplistDetailCtrl.departments" ng-model="droplistDetailCtrl.droplist.departmentName" ng-change="droplistDetailCtrl.filterSections()">
@@ -37,7 +37,7 @@
           </select>
         </div>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <div class="form-group">
           <label for="AisleNumber">Section</label>
           <select class="form-control" ng-options="section.sectionId as section.sectionName for section in droplistDetailCtrl.departmentSections" ng-model="droplistDetailCtrl.droplist.sectionId">
@@ -55,11 +55,11 @@
               <th>Aisle</th>
               <th>Row</th>
               <th>Column</th>
-              <th>Item Number - Description</th>
-              <th>Quantity</th>
-              <th ng-show="droplistDetailCtrl.isNew"></th>
-              <th ng-show="!droplistDetailCtrl.editable">Completed</th>
-              <th ng-show="!droplistDetailCtrl.editable">Rejected</th>
+              <th>Item #</th>
+              <th width="1%">Quantity</th>
+              <th width="1%" ng-show="droplistDetailCtrl.isNew"></th>
+              <th width="1%" ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.editable">Completed</th>
+              <th width="1%" ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.editable">Rejected</th>
             </tr>
           </thead>
           <tbody>
@@ -80,7 +80,7 @@
               </td>
               <td>
                 <ui-select ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" ng-model="droplistItem.productId" theme="bootstrap">
-                  <ui-select-match placeholder="Item # - Description">
+                  <ui-select-match placeholder="Search">
                     {{$select.selected.itemNumber}}-{{$select.selected.description}}
                   </ui-select-match>
                   <ui-select-choices repeat="product.productId as product in droplistDetailCtrl.products | filter: $select.search">
@@ -89,7 +89,7 @@
                 </ui-select>
                 <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.product.itemNumber}} - {{droplistItem.product.description}}</p>
               </td>
-              <td>
+              <td width="1%">
                 <input ng-show="droplistDetailCtrl.isNew || droplistDetailCtrl.editable" type="number" class="form-control" ng-model="droplistItem.quantity" min="1" max="500"></input>
                 <p ng-show="!droplistDetailCtrl.editable && !droplistDetailCtrl.isNew">{{droplistItem.quantity}}</p>
               </td>
@@ -98,7 +98,7 @@
                   <i class="glyphicon glyphicon-trash"></i>
                 </a>
               </td>
-              <td ng-show="!droplistDetailCtrl.editable">
+              <td width="1%" ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.editable">
                 <div ng-show="!droplistItem.completed && !droplistItem.rejected">
                   <a ng-click="droplistDetailCtrl.markDroplistItemCompleted(droplistItem)" class="btn btn-success">
                     <i class="glyphicon glyphicon-thumbs-up"></i>
@@ -108,7 +108,7 @@
                   <i class="glyphicon glyphicon-ok"></i> Completed
                 </div>
               </td>
-              <td ng-show="!droplistDetailCtrl.editable">
+              <td width="1%" ng-show="!droplistDetailCtrl.isNew && !droplistDetailCtrl.editable">
                 <div ng-show="!droplistItem.completed && !droplistItem.rejected">
                   <a ng-click="droplistDetailCtrl.markDroplistItemRejected(droplistItem)" class="btn btn-danger">
                     <i class="glyphicon glyphicon-thumbs-down"></i>

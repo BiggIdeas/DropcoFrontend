@@ -16,27 +16,16 @@
     <form class="col-xs-12" ng-show="sectionCtrl.addingNewSection">
       <h3>Adding new section</h3>
       <div class="form-group row">
-        <div class="col-xs-5">
+        <div class="col-xs-12 col-sm-5 col-md-5">
           <label for="">Section Name</label>
           <input class="form-control" type="text" ng-model="sectionCtrl.newSection.sectionName" />
         </div>
-        <div class="col-xs-5">
+        <div class="col-xs-12 col-sm-5 col-md-5">
           <label for="Section">Department</label>
-          <!-- <p>{{droplistDetailCtrl.droplist.departmentName}}</p> -->
           <select class="form-control" ng-options="department.departmentId as department.departmentName for department in sectionCtrl.departments" ng-model="sectionCtrl.newSection.departmentId">
-
           </select>
         </div>
-        <!-- <div class="col-xs-3">
-          <label for="">Price</label>
-          <div class="input-group">
-            <div class="input-group-addon">$</div>
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="productGridCtrl.newProduct.price">
-            <div class="input-group-addon">dlls</div>
-          </div>
-        </div> -->
-        <!-- <input class="form-control" type="number" ng-model="productGridCtrl.newProduct.price" /> -->
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-2 col-md-2">
           <button class="btn btn-primary form-control" ng-click="sectionCtrl.saveNewSection()">Save</button>
           <button class="btn btn-danger form-control" ng-click="sectionCtrl.cancelSaveNewSection()">Cancel</button>
         </div>
