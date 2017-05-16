@@ -6,10 +6,10 @@
       <canvas id="line" class="chart chart-doughnut" chart-data="dashboardCtrl.droplistItems.data" chart-labels="dashboardCtrl.droplistItems.labels"></canvas>
     </div>
     <div class="col-xs-8 col-sm-8 col-md-8">
-      <p>Total Droplist Items created</p>
-      <p style="color:#97BACD; font-weight:bold;">Droplist Items completed: {{dashboardCtrl.droplistItems.data[0]}}</p>
-      <p style="color:#DCDCDC; font-weight:bold;">Droplist Items pending: {{dashboardCtrl.droplistItems.data[1]}}</p>
-      <p style="color:#F64649; font-weight:bold;">Droplist Items rejected: {{dashboardCtrl.droplistItems.data[2]}}</p>
+      <p>Total DroplistItems </p>
+      <div class="blueSquare"><span class="chartText blueText">Completed: {{dashboardCtrl.droplistItems.data[0]}}</span>
+      <div class="blueSquare"><span class="chartText blueText">Pending: {{dashboardCtrl.droplistItems.data[1]}}</span>
+      <div class="blueSquare"><span class="chartText blueText">Rejected: {{dashboardCtrl.droplistItems.data[2]}}</span>
     </div>
     <hr class="col-xs-12" />
 
