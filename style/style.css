@@ -17,6 +17,10 @@ header img {
   cursor: pointer;
 }
 
+.center{
+  text-align: center;
+}
+
 .margin {
   margin: 10px;
 }
@@ -25,6 +29,50 @@ header img {
   height: 250px;
 }
 
+.chartText{
+  font-size: 20px;
+  font-weight:bold;
+  padding: 20px;
+}
+
+.chartSubtext{
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.blueText{
+  color:#97BACD;
+}
+
+.blueSquare{
+  width: 15px;
+  height: 15px;
+  background-color: #97BACD;
+  display: inline-block;
+}
+
+.greyText{
+  color:#DCDCDC;
+}
+
+.greySquare{
+  width: 15px;
+  height: 15px;
+  background-color: #DCDCDC;
+  display: inline-block;
+}
+
+.redText{
+  color:#F64649;
+}
+
+.redSquare{
+  width: 15px;
+  height: 15px;
+  background-color: #F64649;
+  display: inline-block;
+}
 
 /* General ids
 -------------------------------------------------- */
