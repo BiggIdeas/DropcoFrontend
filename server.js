@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 
 // Tell express to make all files in `/src` available
-app.use(express.static('app'));
+app.use(express.static('.'));
 
 // Setup the default route to serve the index page
 app.get('/', (req, res) => {
