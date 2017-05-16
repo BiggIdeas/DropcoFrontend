@@ -8,7 +8,7 @@ app.use(express.static('src'));
 
 // Setup the default route to serve the index page
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname + '/src/index.html'));
+	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 // Either use the Heroku port, or use 4200
