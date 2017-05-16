@@ -3,9 +3,10 @@
     Employees list
   </div>
   <div class="panel-body">
-    <div class="col-xs-12" ng-hide="employeeGridCtrl.addingNewEmployee">
-      Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </div>
+    <!-- <div class="col-xs-12" ng-hide="employeeGridCtrl.addingNewEmployee">
+      Search: <input type="text" ng-model="employeeGridCtrl.searchEmployee"/>
+      <span class="glyphicon glyphicon-search pointer" aria-hidden="true" ng-click="employeeGridCtrl.test()"></span>
+    </div> -->
     <div class="col-xs-12" ng-hide="employeeGridCtrl.addingNewEmployee">
       <!-- <div class="pull-right pointer" ng-click="employeeGridCtrl.addNewEmployee()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new employee
@@ -58,7 +59,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="employee in employeeGridCtrl.employees">
+          <tr ng-repeat="employee in employeeGridCtrl.filteredEmployees">
             <td>{{$index+1}}</td>
             <td>{{employee.employeeNumber}}</td>
             <td>{{employee.firstName}}</td>
@@ -79,6 +80,6 @@
     </div>
   </div>
   <div class="panel-footer" style="text-align:right">
-    Total employees: {{employeeGridCtrl.employees.length}}
+    Total employees: {{employeeGridCtrl.allEmployees.length}}
   </div>
 </div>

@@ -16,15 +16,15 @@
     <form class="col-xs-12" ng-show="productGridCtrl.addingNewProduct">
       <h3>Adding new product</h3>
       <div class="form-group row">
-        <div class="col-xs-3">
+        <div class="col-xs-12 col-sm-3 col-md-3">
           <label for="">Item number</label>
           <input class="form-control" type="text" ng-model="productGridCtrl.newProduct.itemNumber" />
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
           <label for="">Description</label>
           <input class="form-control" type="text" ng-model="productGridCtrl.newProduct.description" />
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-12 col-sm-3 col-md-3">
           <label for="">Price</label>
           <div class="input-group">
             <div class="input-group-addon">$</div>
@@ -33,7 +33,7 @@
           </div>
         </div>
         <!-- <input class="form-control" type="number" ng-model="productGridCtrl.newProduct.price" /> -->
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-2 col-md-2">
           <button class="btn btn-primary form-control" ng-click="productGridCtrl.saveNewProduct()">Save</button>
           <button class="btn btn-danger form-control" ng-click="productGridCtrl.cancelSaveNewProduct()">Cancel</button>
         </div>

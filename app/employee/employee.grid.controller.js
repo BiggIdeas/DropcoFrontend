@@ -14,6 +14,16 @@
 
     activate();
 
+    vm.test = function test() {
+console.log("test");
+      // for (var i = 0; i < vm.allEmployees.length; i++) {
+      //   if (vm.allEmployees[i].firstName.indexOf(vm.searchEmployee)) {
+      //     vm.filteredEmployees.push(vm.allEmployees[i]);
+      //     // console.log("it issssss that letter", vm.searchEmployee);
+      //   }
+      // }
+    }
+
     function activate() {
       getEmployee();
       getRoles();
@@ -23,7 +33,8 @@
       employeesFactory
         .getAll()
         .then(function(employees) {
-          vm.employees = employees;
+          vm.allEmployees = employees;
+          vm.filteredEmployees = employees;
         })
         .catch(function(error) {
           console.error(error);
@@ -41,9 +52,9 @@
         });
     }
 
-    vm.searchEmployee = function searchEmployee() {
-      // console.log("hi");
-    }
+    // vm.searchEmployee = function searchEmployee() {
+    //   // console.log("hi");
+    // }
 
     vm.addNewEmployee = function addNewEmployee() {
       vm.addingNewEmployee = true;

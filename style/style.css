@@ -12,26 +12,36 @@ header img {
   max-width: 1200px;
   padding: 0 15px;
 }
+
 .pointer {
   cursor: pointer;
 }
-.margin{
+
+.margin {
   margin: 10px;
 }
+
+.teamMemberCard {
+  height: 250px;
+}
+
 
 /* General ids
 -------------------------------------------------- */
 #jumbotron {
   background-color: #eee;
 }
+
 #navbar {
   background-color: #337ab7;
   font-size: 22px;
   margin-bottom: 0px;
 }
-#navbar ul{
+
+#navbar ul {
   background-color: #337ab7;
 }
+
 #navbar a, #navbar p, #navbar li {
   color: white;
 }
@@ -43,10 +53,12 @@ html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -57,8 +69,20 @@ body {
   padding-top: 15px;
 }
 
+
 /* Login Page
 -------------------------------------------------- */
-#loginImg{
+#loginImg {
   height: 300px;
 }
+
+@media only screen and (max-width: 544px) {
+    #loginImg{
+      height: 200px;
+    }
+}
+
+/*table td {
+  width: 200px;
+  word-break: break-all;
+}*/

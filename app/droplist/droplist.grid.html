@@ -2,7 +2,7 @@
   <i class="glyphicon glyphicon-plus"></i> New List
 </button> -->
 
-<div class="panel panel-primary">
+<div class="panel panel-primary col-xs-12">
   <div class="panel-heading">
     Droplists
   </div>
@@ -47,49 +47,63 @@
         <span class="sr-only">Loading...</span>
       </div>
       <div class="col-xs-12 animated fadeIn" ng-show="droplistGridCtrl.filteredDroplists.length > 0 && !droplistGridCtrl.loading">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Department</th>
-              <th>Section</th>
-              <th>Created on</th>
-              <th>By</th>
-              <th>Completed on</th>
-              <th>Driver</th>
-              <th width="1%"></th>
-              <th ng-hide="droplistGridCtrl.isDriver" width="1%"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="droplist in droplistGridCtrl.filteredDroplists">
-              <td>{{$index+1}}</td>
-              <td>{{droplist.droplistName}}</td>
-              <td>{{droplist.departmentName}}</td>
-              <td>{{droplist.sectionName}}</td>
-              <td>{{droplist.createdOnDate | date:'short'}}</td>
-              <td>{{droplist.stockerName}}</td>
-              <td>
-                <span ng-show="droplist.completedOnDate">{{droplist.completedOnDate | date:'short'}}</span>
-                <span ng-hide="droplist.completedOnDate">Pending</span>
-              </td>
-              <td>
-                <span ng-show="droplist.completedOnDate">{{droplist.driverName}}!</span>
-                <span ng-hide="droplist.completedOnDate">  ---  </span>
-              <td>
-                <a ui-sref="app.droplist.detail({id: droplist.droplistId})" class="btn btn-default">
-                  <i class="glyphicon glyphicon-eye-open"></i>
-                </a>
-              </td>
-              <td ng-hide="droplistGridCtrl.isDriver">
-                <a ng-click="droplistGridCtrl.remove(droplist)" class="btn btn-danger">
-                  <i class="glyphicon glyphicon-trash"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="row">
+          <table class="table table-striped col-xs-12">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Section</th>
+                <th>Created on</th>
+                <th>By</th>
+                <th>Completed on</th>
+                <th>Driver</th>
+                <th width="1%"></th>
+                <th ng-hide="droplistGridCtrl.isDriver" width="1%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="droplist in droplistGridCtrl.filteredDroplists">
+                <td>
+                  <span>{{$index+1}}</span>
+                </td>
+                <td>
+                  <span>{{droplist.droplistName}}</span>
+                </td>
+                <td>
+                  <span>{{droplist.departmentName}}</span>
+                </td>
+                <td>
+                  <span>{{droplist.sectionName}}</span>
+                </td>
+                <td>
+                  <span>{{droplist.createdOnDate | date:'short'}}</span>
+                </td>
+                <td>
+                  <span>{{droplist.stockerName}}</span>
+                </td>
+                <td>
+                  <span ng-show="droplist.completedOnDate">{{droplist.completedOnDate | date:'short'}}</span>
+                  <span ng-hide="droplist.completedOnDate">Pending</span>
+                </td>
+                <td>
+                  <span ng-show="droplist.completedOnDate">{{droplist.driverName}}!</span>
+                  <span ng-hide="droplist.completedOnDate">  ---  </span>
+                  <td>
+                    <a ui-sref="app.droplist.detail({id: droplist.droplistId})" class="btn btn-default">
+                      <i class="glyphicon glyphicon-eye-open"></i>
+                    </a>
+                  </td>
+                  <td ng-hide="droplistGridCtrl.isDriver">
+                    <a ng-click="droplistGridCtrl.remove(droplist)" class="btn btn-danger">
+                      <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

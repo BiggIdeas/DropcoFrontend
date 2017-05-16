@@ -43,7 +43,6 @@
     }
 
     vm.saveNewProduct = function saveNewProduct() {
-      console.log(vm.newProduct);
       productsFactory
         .create(vm.newProduct)
         .then(function(newProduct) {

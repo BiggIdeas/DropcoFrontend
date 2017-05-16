@@ -1,0 +1,60 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Deparments list
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-12" ng-hide="departmentGridCtrl.addingNewDepartment">
+      Search: <input type="text"/> <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </div>
+    <div class="col-xs-12" ng-hide="departmentGridCtrl.addingNewDepartment || departmentGridCtrl.role == 'Driver'">
+      <div class="pull-right pointer" ng-click="departmentGridCtrl.addNewDepartment()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new department
+      </div>
+    </div>
+    <form class="form-inline" ng-show="departmentGridCtrl.addingNewDepartment">
+      <h3>Adding new department</h3>
+      <div class="form-group">
+        <label for="">Deparment Name</label>
+        <input class="form-control" type="text" ng-model="departmentGridCtrl.newDepartment.departmentName"/>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" ng-click="departmentGridCtrl.saveNewDepartment()">Save</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-danger" ng-click="departmentGridCtrl.cancelSaveNewDepartment()">Cancel</button>
+      </div>
+      <hr>
+    </form>
+    <div class="col-xs-12">
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Department name</th>
+            <!-- <th>View</th>
+        <th>Edit</th> -->
+            <!-- <th>Remove</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="department in departmentGridCtrl.departments">
+            <td>{{$index+1}}</td>
+            <td>{{department.departmentName}}</td>
+            <!-- <td ui-sref="app.department.detail({id: department.departmentId})">
+          <span class="glyphicon glyphicon-eye-open pointer" aria-hidden="true"></span>
+        </td>
+        <td >
+          <span class="glyphicon glyphicon-edit pointer" aria-hidden="true"></span>
+        </td> -->
+            <!-- <td ng-click="departmentGridCtrl.remove(department)">
+          <span class="glyphicon glyphicon-remove pointer" aria-hideen="true"></span>
+        </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel-footer" style="text-align:right">
+    Total departments: {{departmentGridCtrl.departments.length}}
+  </div>
+</div>
