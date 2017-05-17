@@ -15,7 +15,8 @@
       getHardlinesDroplistItems: getHardlinesDroplistItems,
       getCenterDroplistItems: getCenterDroplistItems,
       getFoodsDroplistItems: getFoodsDroplistItems,
-      getDepartmentDroplistItems: getDepartmentDroplistItems
+      getDepartmentDroplistItems: getDepartmentDroplistItems,
+      getRejectedDroplistItems: getRejectedDroplistItems
     };
 
     return service;
@@ -63,6 +64,14 @@
     function getDepartmentDroplistItems(departmentName) {
       return $http
         .get(apiUrl + 'getDepartmentDroplistItems', departmentName)
+        .then(function(response) {
+          return response.data;
+        });
+    }
+
+    function getRejectedDroplistItems() {
+      return $http
+        .get(apiUrl + 'getRejectedDroplistItems')
         .then(function(response) {
           return response.data;
         });

@@ -11,11 +11,6 @@
   function DashboardController($stateParams, authFactory, departmentsFactory, chartsFactory) {
     var vm = this;
 
-    vm.bigMac = {
-      data: [4, 6.1, 2.8], // while literal in this example, this will really be the result of the call to the .map function.
-      labels: ['2014', '2015', '2016'] // see above comment, same applys here.
-    };
-
     activate();
 
     function activate() {
@@ -26,6 +21,16 @@
       getHardlinesDroplistItems();
       getCenterDroplistItems();
       getFoodsDroplistItems();
+
+      if (vm.role == "Stocker")
+      {
+        // getRejectedDroplistItems();
+        chartsFactory
+          .getRejectedDroplistItems()
+          .then(function(rejectedDroplistItems) {
+            vm.rejectedDroplistItems = rejectedDroplistItems;
+          });
+      }
       // vm.hardlinesDroplistItems = getDepartmentDroplistItems("Hardlines");
       // vm.centerDroplistItems = getDepartmentDroplistItems("Center");
       // vm.foodsDroplistItems = getDepartmentDroplistItems("Foods");
