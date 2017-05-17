@@ -30,9 +30,12 @@
           controller: 'LoginController as loginCtrl',
           templateUrl: '/app/login/login.html'
         })
+        .state('settings', {
+          url: '/settings',
+          templateUrl: '/app/settings/settings.html'
+        })
         .state('knowTheTeam', {
           url: '/knowTheTeam',
-          // controller: 'AboutUsController as aboutUsCtrl',
           templateUrl: '/app/knowTheTeam/knowTheTeam.html'
         })
         .state('about', {
