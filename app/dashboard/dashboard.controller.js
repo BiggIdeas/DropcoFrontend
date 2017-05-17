@@ -28,6 +28,7 @@
         chartsFactory
           .getRejectedDroplistItems()
           .then(function(rejectedDroplistItems) {
+            console.log(vm.rejectedDroplistItems);
             vm.rejectedDroplistItems = rejectedDroplistItems;
           });
       }
