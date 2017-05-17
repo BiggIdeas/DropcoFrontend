@@ -57,10 +57,10 @@
                 Hi, {{navbarCtrl.username}} ({{navbarCtrl.role}})   <span class="caret"></span>
               </p>
               <ul class="dropdown-menu">
-                <li><a ui-sref="app.employees.grid">Employees</a></li>
-                <li><a ui-sref="app.departments">Departments</a></li>
-                <li><a ui-sref="app.sections">Sections</a></li>
-                <li><a ui-sref="app.products.grid">Products</a></li>
+                <li><a ui-sref="app.employees.grid">Add Employees</a></li>
+                <li><a ui-sref="app.departments">Add Departments</a></li>
+                <li><a ui-sref="app.sections">Add Sections</a></li>
+                <li><a ui-sref="app.products.grid">Add Products</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">
                   Settings <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
@@ -89,13 +89,13 @@
       <div class="grid ui">
         <div class="row" style="text-align:center;">
           <div class="col-xs-4" ui-sref="about">
-            <span class="pointer">About the project.</span>
+            <button class="btn btn-default">About the project.</button>
           </div>
           <div class="col-xs-4">
             <span>Developed by BiggIdeas &reg; All rights reserved.</span>
           </div>
           <div class="col-xs-4" ui-sref="knowTheTeam">
-            <span class="pointer">Know the team!</span>
+            <button class="btn btn-default">Know the team!</span>
           </div>
           <hr>
           <div class="col-xs-12">
