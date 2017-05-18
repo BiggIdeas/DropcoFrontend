@@ -74,8 +74,8 @@
         droplistsFactory
           .getAll()
           .then(function(droplists) {
-            vm.droplists = droplists;
-            vm.filteredDroplists = droplists;
+            vm.droplists = droplists.reverse();
+            vm.filteredDroplists = droplists.reverse();
             vm.loading = false;
           })
           .catch(function(error) {
