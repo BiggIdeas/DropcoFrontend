@@ -6,9 +6,11 @@ const browserSync = require('browser-sync');
 /* injects the files that you create */
 gulp.task('inject', ['inject:bower'], function() {
 	var sources = gulp.src([										// Define the files we'd like to inject
+			'!./app/bower_components/**/*.css',
 		'./app/**/*.module.js', 						// *.module.js files go first
-		'./app/**/*.js', 								// *.js files come next
+		'./app/**/*.js', 								// *.js files come
 		'./app/**/*.css'								// *.css files come next
+
 	]);
 
     return gulp.src('./index.html') 							// Read your index.html
