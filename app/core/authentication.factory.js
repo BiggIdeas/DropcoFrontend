@@ -21,7 +21,7 @@
       role: '',
       userId: '',
       buildingId: '',
-      name: ''
+      firstName: ''
     };
 
     return service;
@@ -36,7 +36,7 @@
         service.role = authData.role;
         service.userId = authData.userId;
         service.buildingId = authData.buildingId;
-        service.name = authData.firstName;
+        service.firstName = authData.firstName;
       }
     }
 
@@ -76,21 +76,21 @@
             role: response.data.role,
             userId: response.data.userId,
             buildingId: response.data.buildingId,
-            name: response.data.firstName
+            firstName: response.data.firstName
           });
           service.isAuth = true;
           service.username = response.data.username;
           service.role = response.data.role;
           service.userId = response.data.userId;
           service.buildingId = response.data.buildingId;
-          service.name = response.data.firstName;
+          service.firstName = response.data.firstName;
 
           $rootScope.$broadcast('login-happened', {
             username: response.data.username,
             role: response.data.role,
             userId: response.data.userId,
             buildingId: response.data.buildingId,
-            name: response.data.firstName
+            firstName: response.data.firstName
           });
 
           return response.data;
@@ -104,7 +104,7 @@
       service.role = '';
       service.userId = '';
       service.buildingId = '';
-      service.name = '';
+      service.firstName = '';
     }
 
     function isLoggedIn() {
